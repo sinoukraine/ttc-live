@@ -1,0 +1,208 @@
+
+<div class="page bg-color-page alarm_page" data-page="alarms.select">
+	<div class="navbar color-black">
+    	<div class="navbar-inner">
+    	  	<div class="left">
+            	<a href="#" class="link back color-black"> <i class="f7-icons">arrow_left</i></a>
+            </div>
+    		<div class="left navbar_title navbar_title_index">{{@global.LANGUAGE.ALARM_MSG06}}</div>
+    		<div class="right">    			
+    			<div class="theme-bw alarm_switch_container">
+    				<label class="label-switch no-fastclick ">
+    	    			<input type="checkbox" name="checkbox-alarm" >
+    	    			<div class="checkbox"></div>
+    	    		</label>
+    			</div>  
+    			<a href="#" class="link  saveAlarm"><i class="f7-icons">check</i></a> 
+    		</div>
+    	</div>
+  	</div>
+  	
+  	<div class="page-content">
+  		<input type="hidden" name="Assets" value="{{Assets}}">
+  		<div class="list-block layout-dark media-list alarm_list"> 
+  				
+  			<ul>
+  				<li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-geofenceIn" value="8" {{#if geofenceIn}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG12}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>
+	            <li >
+                    <label class="label-checkbox item-content no-fastclick " >
+                        <input type="checkbox" name="checkbox-geolock" value="1024" {{#if geolock}}checked="checked"{{/if}}>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG05}}</div>
+                                <div class="item-after">
+                                    <i class="icon icon-form-checkbox"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </li>
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox"  name="checkbox-accOff" value="65536" {{#if accOff}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG10}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-accOn" value="32768" {{#if accOn}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG11}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-geofenceOut" value="16" {{#if geofenceOut}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG13}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li> 
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-lowBattery" value="512" {{#if lowBattery}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG17}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-mainBatteryFail" value="4" {{#if mainBatteryFail}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG18}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-custom2LowAlarm" value="1048576" {{#if custom2LowAlarm}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG22}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>  
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-illegalIgnition" value="128" {{#if illegalIgnition}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG14}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	 
+
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-customAlarm" value="131072" {{#if customAlarm}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG20}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>
+	            
+	            
+	            
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-sosAlarm" value="2" {{#if sosAlarm}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG19}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-speeding" value="32" {{#if speeding}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG23}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	            
+	            <li >
+	            	<label class="label-checkbox item-content no-fastclick " >
+	            		<input type="checkbox" name="checkbox-tilt" value="256" {{#if tilt}}checked="checked"{{/if}}>
+	            		<div class="item-inner">
+	            	  		<div class="item-title-row">
+	            	  	  		<div class="item-title color-white">{{@global.LANGUAGE.ALARM_MSG07}}</div>
+	            	  	  		<div class="item-after">
+	            	    			<i class="icon icon-form-checkbox"></i>
+	            	    		</div>
+	            	  	  	</div>
+	            	  	</div>
+	            	</label>
+	            </li>	  
+	            
+	            
+	        </ul>
+	        
+  		</div>
+
+		
+  	</div>
+	
+</div>

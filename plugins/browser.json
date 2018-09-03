@@ -1,0 +1,40 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "phonegap-plugin-push": {
+            "SENDER_ID": "XXXXXXX",
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-buildinfo": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.sinopacific.ttclive"
+        }
+    },
+    "dependent_plugins": {}
+}
