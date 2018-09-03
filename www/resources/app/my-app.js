@@ -2972,16 +2972,16 @@ function getAssetImg(params, imgFor){
 	            		}
             		}
             	}            	
-                assetImg = '<div class="item_asset_img bg-white"><div class="text-a-c vertical-center user_f_l">'+one+two+'</div></div>';            
+                assetImg = '<div class="item_asset_img bg-dealer"><div class="text-a-c vertical-center user_f_l">'+one+two+'</div></div>';            
             }else{
-                assetImg = '<div class="item_asset_img bg-white"><div class="text-a-c vertical-center user_f_l">'+params.Name[0]+params.Name[1]+'</div></div>';            
+                assetImg = '<div class="item_asset_img bg-dealer"><div class="text-a-c vertical-center user_f_l">'+params.Name[0]+params.Name[1]+'</div></div>';            
             }
             
         }else if(params.IMEI){
-            assetImg = '<div class="item_asset_img bg-white"><div class="text-a-c vertical-center user_f_l">'+params.IMEI[0]+params.IMEI[1]+'</div></div>';
+            assetImg = '<div class="item_asset_img bg-dealer"><div class="text-a-c vertical-center user_f_l">'+params.IMEI[0]+params.IMEI[1]+'</div></div>';
         }
     }else{
-        assetImg = '<div class="item_asset_img bg-white"><div class="text-a-c vertical-center user_f_l">?</div></div>';
+        assetImg = '<div class="item_asset_img bg-dealer"><div class="text-a-c vertical-center user_f_l">?</div></div>';
     }   
     return assetImg;
 }
