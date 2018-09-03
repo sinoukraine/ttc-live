@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.sinopacific.ttclive" version="1.2.6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" android-versionCode="23">
-    <name>TTC Live</name>
+    <name>TTC LiveTrack</name>
     <description>
         TTC LiveTrack GPS tracker
     </description>
@@ -29,7 +29,7 @@
     <preference name="android-targetSdkVersion" value="26" />
     <preference name="deployment-target" value="10.2" />
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarBackgroundColor" value="#ee6e73" />
+    <!-- <preference name="StatusBarBackgroundColor" value="#ee6e73" /> -->
     <preference name="StatusBarStyle" value="blacktranslucent" />
     <preference name="phonegap-version" value="cli-7.1.0" />
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.1.3" />
