@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="MobileOptimized" content="320"/>
+    <!-- Color theme for statusbar -->
+    <!-- <meta name="theme-color" content="#2196f3"> -->
+    <!-- Your app title -->
+    <title>BoatProtect</title>
+    
+    <!-- Cropper Camer -->
+    <link rel="stylesheet" href="resources/plugins/cropper/css/cropper.min.css" type="text/css" charset="utf-8"/>
+   
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="resources/libraries/framework7/css/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="resources/libraries/framework7/css/framework7.material.colors.min.css">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="resources/fonts/framework7-icons.css">
+    <link rel="stylesheet" href="resources/fonts/ownicons/iconfont.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="resources/libraries/leaflet/leaflet.css">
+    <link rel="stylesheet" href="resources/fonts/roboto.css">
+    <link rel="stylesheet" href="resources/app/my-app.css">
+    
+
+    
+    
+    
+
+  </head>
+  <body class="theme-cyan">
+     
+    
+    <script id="template_Login_Screen" type="text/template7">
+      <div class="login-screen ">  
+        <div class="view">
+          <div class="page no-navbar no-toolbar no-swipeback login_page" data-page="login-screen">           
+            <div class="page-content login-screen-content">
+              <div class="content-block">
+                <div class="logo"><img src="resources/images/login_logo.png" /></div>
+              </div>
+              <div class="list-block login_list">
+                <ul>
+                  <li>
+                    <div class="item-content">          
+                      <div class="item-inner">
+                        <div class="item-input">                          
+                          <input type="text" placeholder="{{@global.LANGUAGE.LOGIN_MSG02}}" id="account" name="account" value="" />
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="item-content">          
+                      <div class="item-inner">
+                        <div class="item-input">                          
+                          <input type="password" placeholder="{{@global.LANGUAGE.LOGIN_MSG03}}" id="password" name="password" value="" />
+                        </div>
+                      </div>
+                    </div>
+                  </li> 
+                  <li class="forget_pwd_wrapper">       
+                    <a href="resources/templates/resetPwd.html" class="forgetPwd">{{@global.LANGUAGE.LOGIN_MSG05}}</a>          
+                  </li>             
+                </ul>
+              </div>          
+              <div class="content-block ">
+                <a class="button button-big login-submit button-fill btn_login" style="" href="#" id="btnLogin">{{@global.LANGUAGE.LOGIN_MSG04}}</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </script>
+    
+    <!-- First, we need to add Panel's overlay that will overlays app while panel is opened -->
+    <div class="panel-overlay"></div>
+
+    <script id="template_Popover_Menu" type="text/template7">
+      <!-- Left panel -->
+      <div class="panel panel-left panel-reveal">
+        <div class="menu_header">
+          <img class="vertical-center" src="resources/images/menu_logo.png" alt="">
+        </div>
+        <div class="list-block menu" id="menu">
+          <div class="list-group">
+            <ul>
+              <li class="item-content list-panel-all close-panel item-link" id="menuHome">
+                <div class="item-media">                
+                  <i class="icon iconfont icon-home"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title">{{@global.LANGUAGE.MENU_MSG00}}</div>
+                </div>
+              </li>
+              <li class="item-content list-panel-all close-panel item-link" id="menuAddAsset">
+                <div class="item-media">
+                  <i class="icon iconfont icon-add"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title">{{@global.LANGUAGE.MENU_MSG01}}</div>
+                </div>
+              </li>           
+              <li class="item-content list-panel-all close-panel item-link" id="menuRecharge">
+                <div class="item-media">
+                  <i class="icon iconfont icon-star"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title">{{@global.LANGUAGE.MENU_MSG02}}</div>
+                </div>
+              </li>
+              <li class="item-content list-panel-all close-panel item-link" id="menuProfile">
+                <div class="item-media">
+                  <i class="icon iconfont icon-setting"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title">{{@global.LANGUAGE.MENU_MSG03}}</div>
+                </div>
+              </li>            
+              <li class="item-content list-panel-all close-panel" id="menuLogout"> 
+                <div class="item-media">
+                  <i class="icon iconfont icon-exit"></i>
+                </div>
+                <div class="item-inner">
+                  <div class="item-title">{{@global.LANGUAGE.MENU_MSG04}}</div>
+                </div> 
+              </li>            
+            </ul>
+          </div>
+        </div>
+        <div class="content-divider"></div>
+        <div class="content-block remaining_wrapper">
+          <p>{{@global.LANGUAGE.COM_MSG01}}: <span class="user_credits">222</span></p>
+        </div>
+      </div>
+    </script>
+
+	<!-- Right Panel with Cover effect -->
+	<!-- <script id="template_Popover_Notification" type="text/template7">    
+      <div class="panel panel-right panel-cover">
+        <div class="content-block-title color-cyan notification_header">{{@global.LANGUAGE.NOTIFICATION_MSG00}}</div>
+          <div class="list-block media-list notification_list">
+              <ul>
+                  <li class="item-content">
+                      <div class="item-inner">
+                          <div class="item-title-row">
+                              <div class="item-title">Nimbus 405 Coupe</div>
+                          </div>
+                          <div class="item-subtitle">3/01/2017 09:40:53</div>
+                          <div class="item-text">{{@global.LANGUAGE.ALARM_MSG03}}</div>
+                      </div>
+                  </li>
+                  <li class="item-content">
+                      <div class="item-inner">
+                          <div class="item-title-row">
+                              <div class="item-title">Yacht "St. Mary"</div> 
+                          </div>
+                          <div class="item-subtitle">25/12/2016 15:45:16</div>
+                          <div class="item-text">{{@global.LANGUAGE.ALARM_MSG02}}</div>
+                      </div>
+                  </li>
+                  <li class="item-content">
+                      <div class="item-inner">
+                          <div class="item-title-row">
+                              <div class="item-title">Nimbus 405 Coupe</div> 
+                          </div>
+                          <div class="item-subtitle">2/12/2016 23:22:02</div>
+                          <div class="item-text">{{@global.LANGUAGE.ALARM_MSG04}}</div>
+                      </div>
+                  </li>
+              </ul>
+          </div>
+      </div>
+    </script> -->
+
+    <!-- Views -->
+    <div class="views">
+      <!-- Your main view, should have "view-main" class -->
+      <div class="view view-main">
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+        <div class="pages navbar-fixed">
+          <!-- Page, "data-page" contains page name -->
+          <script type="text/template7" id="template_AssetList" >
+            <div data-page="index" class="page">
+        
+              <!-- Top Navbar. In Material theme it should be inside of the page-->
+              <div class="navbar">
+                <div class="navbar-inner">
+                  <div class="left">
+                    <a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+                  </div>
+                  <div class="left navbar_title navbar_title_index">{{@global.LANGUAGE.ASSET_LIST_MSG00}}</div>
+                  
+                  <div class="right">
+                      <a href="#" class="link button_search" ><i class="f7-icons">search</i></a>
+                    	<!-- <a href="#" class="link open-panel notification_button " data-panel="right" ><i class="f7-icons">bell_fill</i></a> -->
+                    <a href="resources/templates/notification.html" class="link notification_button " ><i class="f7-icons">bell_fill</i></a>
+                  </div>
+                </div>
+                <!-- Search Bar -->
+                <form class="searchbar navbar-inner dislay_none" >
+                    <div class="searchbar-input">
+                        <input type="search" placeholder="{{@global.LANGUAGE.COM_MSG06}}">
+                        <a href="#" class="searchbar-clear"></a>
+                    </div>
+                    <a href="#" class="searchbar-cancel">{{@global.LANGUAGE.COM_MSG04}}</a>
+                </form>
+              </div>
+      
+              <div class="searchbar-overlay"></div>
+
+              <!-- Scrollable page content -->
+              <div class="page-content" id="assets_list">
+                <div class="content-block searchbar-not-found">
+                  {{@global.LANGUAGE.COM_MSG05}}
+                </div>
+                <div class="list-block media-list virtual-list list-block-search searchbar-found assets_list" >            
+                  
+                </div>
+              </div>
+            </div>
+          </script>
+            <!-- {{#each list}}                  
+                    <li class="item-link item-content item_asset" data-id="{{IMEI}}">                    
+                        <div class="item-media"><img src="resources/images/svg_asset.svg" alt=""></div>
+                        <div class="item-inner">
+                          <div class="item-title-row">
+                            <div class="item-title">{{Name}}</div>
+                          </div>                        
+                        </div>                    
+                    </li>
+                    {{/each}} -->
+
+        </div>
+      </div> 
+
+    </div>     
+         
+
+    <div class="popup tablet-fullscreen popup-win" id="win"></div>
+    
+    
+    <!-- Path to Framework7 Library JS-->
+    <script type="text/javascript" src="resources/libraries/framework7/js/framework7.min.js"></script>
+     <!-- jquery libraries -->
+    <!-- <script type="text/javascript" src="resources/libraries/jquery/jquery-3.1.1.min.js"></script> -->
+    <script type="text/javascript" src="resources/libraries/jquery/jquery-1.6.4.min.js"></script>
+
+    
+    <script type="text/javascript" src="resources/libraries/jquery/jquery.signalR-2.2.0.min.js"></script>
+    
+    <!-- Path to leaflet Library JS-->
+    <script type="text/javascript" src="resources/libraries/leaflet/leaflet.js"></script>
+    <!-- Moment -->
+    <script type="text/javascript" src="resources/libraries/moment/moment.min.js" ></script>
+    <!-- Cropper Camera --> 
+    <script type="text/javascript" src="resources/plugins/cropper/js/cropper.min.js"></script>
+
+    <!-- Circuit Progress bar --> 
+    <script type="text/javascript" src="resources/plugins/CircularProgress/circular-progress.min.js  "></script> 
+    
+   
+    <!-- Path to your app js-->
+    <script type="text/javascript" src="resources/app/languages.js" ></script>
+    <script type="text/javascript" src="resources/app/helper.js" ></script>
+    <script src="http://api.Quikdata.co:8088/signalr/hubs"></script>
+    <script type="text/javascript" src="resources/app/HubPlus.js" ></script>        
+    <script type="text/javascript" src="resources/app/my-app.js"></script>
+
+    
+  </body>
+</html> 

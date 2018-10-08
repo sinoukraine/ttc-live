@@ -1,25 +1,28 @@
-<div class="page bg-color-page add_edit_photo_page" data-page="asset.edit.photo">
-	<div class="navbar color-black">
-        <div class="navbar-inner">
-            <div class="left">
-            	<a href="#" class="back link"> <i class="f7-icons icon-header-arrow-back"></i></a>
-            </div>
-            <div class="left navbar_title ">{{@global.LANGUAGE.ASSET_EDIT_MSG11}}</div> 
-            <div class="right">
-            	<a href="#" class="link " id="save"><i class="f7-icons icon-header-apply"></i></a>
-            </div>          
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="back link"> <i class="f7-icons icon-header-arrow-back"></i></a>           
         </div>
+        <div class="center sliding">{{@global.LANGUAGE.ASSET_EDIT_MSG11}}</div> 
+        <div class="right">
+            <a href="#" class="link " id="save"><i class="f7-icons icon-header-apply"></i></a> 
+        </div>          
     </div>
-    <div class="page-content">
-        
-        <div style="" class="mui-content">
-            <div class="asset_img_before_crop" style="">
-                <img style="max-width: 980px; max-height: 980px; " id="image" src="{{imgSrc}}">
+</div>
+<div class="pages">
+    <div class="page bg-color-page add_edit_photo_page" data-page="asset.edit.photo">
+    	
+        <div class="page-content">
+            
+            <div style="" class="mui-content">
+                <div class="asset_img_before_crop" style="">
+                    <img style="max-width: 980px; max-height: 980px; " id="image" src="{{imgSrc}}">
+                </div>
+                <button id="redo" type="button" class="button button-fill"><span class="f7-icons">forward</span></button>
+                <button id="undo" type="button" class="button button-fill"><span class="f7-icons">reply</span></button>
             </div>
-            <button id="redo" type="button" class="button button-fill"><span class="f7-icons">forward</span></button>
-            <button id="undo" type="button" class="button button-fill"><span class="f7-icons">reply</span></button>
+
+
         </div>
-
-
     </div>
 </div>

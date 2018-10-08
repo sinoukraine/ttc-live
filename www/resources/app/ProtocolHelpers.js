@@ -426,3 +426,23 @@ Protocol.TKSTAR = JClass(Protocol.Common,{
 });
 Protocol.ClassManager.add("TKSTAR", Protocol.TKSTAR);
 
+Protocol.OUNING_WATCH = JClass(Protocol.Common,{
+    STATIC: {
+
+    },
+    constructor: function(arg) {
+        this.initDeviceInfo(arg);
+        this.posInfo = {};
+    },
+    initPosInfoEx:function(ary, posInfo){
+        posInfo.Battery = ary[23];
+        posInfo.Steps = ary[24];
+        posInfo.Heartrate = ary[25];
+    },
+    initHisPosInfoEx:function(ary, posInfo){
+        posInfo.Battery = ary[21];
+        posInfo.Steps = ary[22];
+        posInfo.Heartrate = ary[23];
+    }
+});
+Protocol.ClassManager.add("OUNING_WATCH", Protocol.OUNING_WATCH);

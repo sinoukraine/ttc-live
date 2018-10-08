@@ -1,427 +1,440 @@
-<div class="page bg-color-page geofence_add_page" data-page="geofence.add">
-    <input type="hidden" name="geofenceEdit" value="{{Edit}}">
-	<div class="navbar color-black ">
-        <div class="navbar-inner">
-            <div class="left">
-            	<a href="#" class="back link color-black"> <i class="f7-icons icon-header-arrow-back"></i></a>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="left">
+            <a href="#" class="back link "> <i class="f7-icons icon-header-arrow-back"></i></a>
+        </div>
+        <div class="center sliding">{{GeofenceName}}</div>
+        <div class="right sliding">
+            <a href="#" class="link saveGeofence"><i class="f7-icons icon-header-apply"></i></a> 
+        </div>
+
+        <div class="subnavbar">
+            <div class="buttons-row">
+                <div class="item-input input_geolock_radius">
+                    <input type="tel" name="geolockRadius" placeholder="{{@global.LANGUAGE.GEOFENCE_MSG_27}}" value="{{Radius}}" class="only_numbers">
+                </div>
             </div>
-            <div class="left navbar_title">{{GeofenceName}}</div>
-           	<div class="right">
-           		<a href="#" class="link  saveGeofence"><i class="f7-icons icon-header-apply"></i></a>
-           	</div>
         </div>
     </div>
-   <div class="page-content">
-        <div class="position_map">
-            <div class="item-input input_geolock_radius">
-                <input type="tel" name="geolockRadius" placeholder="{{@global.LANGUAGE.GEOFENCE_MSG_27}}" value="{{Radius}}" class="only_numbers">
-            </div>
-            <div class="map" id="map"></div>
-        </div>
-        <div class="position_bottom">            
-            <div class="list-block media-list no-hairlines layout-dark list_geofence_preferences">          
-                <ul>    
-                    <li class="item-divider">{{@global.LANGUAGE.GEOFENCE_MSG_01}}</li>                     
-                    <!-- <li>                        
-                        <a href="#" class="item-link smart-select  item-with-arrow" data-searchbar="true" data-searchbar-placeholder="Enter Name">                            
-                            <select name="assets" data-option-image="resources/images/svg_asset.svg" multiple>                                
-                                {{#each Assets}}             
-                                    <option value="{{Id}}" {{#if Selected}} selected {{/if}}>{{Name}}</option> 
-                                {{/each}} 
-                            </select>
-                            <div class="item-content">
-                                <div class="item-media"></div>
-                                <div class="item-inner no-after">                                    
-                                    <div class="item-title color-white">{{@global.LANGUAGE.GEOFENCE_MSG_04}}</div>                                    
-                                    <div class="item-after">Assets</div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>   -->
-                    <li>                        
-                        <div class="item-content item-with-arrow item-select-wrapper"> 
-                            <div class="item-media"></div>                          
-                            <div class="item-inner no-after">
-                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_04}}</div>
-                                <div class="item-input select_input">
-                                    <select name="assets" multiple>
-                                        {{#each Assets}}             
-                                            <option value="{{Id}}" data-imei="{{IMEI}}" {{#if Selected}} selected {{/if}}>{{Name}}</option> 
-                                        {{/each}}                                        
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </li>    
-                    <li class="item-divider">{{@global.LANGUAGE.GEOFENCE_MSG_02}}</li>            
-                    <li>
-                        <div class="item-content">
-                            <div class="item-media"></div>
-                            <div class="item-inner">
-                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_05}}</div>
-                                <div class="item-input">
-                                    <input type="text" placeholder="{{@global.LANGUAGE.GEOFENCE_MSG_05}}" name="geofenceName" value="{{Name}}" maxlength="200">
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <form action="" name="searchGeofenceAddress" class="form_geofence_search_address">
-                            <div class="item-content">
-                                <div class="item-media"></div>
-                                <div class="item-inner">
-                                    <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_06}}</div>
-                                    <div class="item-input">
-                                        <input type="text" placeholder="{{@global.LANGUAGE.GEOFENCE_MSG_11}}" name="geofenceAddress" value="{{Address}}" maxlength="500">
-                                        <button type="submit" class=""><i class="f7-icons color-white">search</i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </li>                    
-                    <li>                        
-                        <div class="item-content item-with-arrow item-select-wrapper"> 
-                            <div class="item-media"></div>                          
-                            <div class="item-inner">
-                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_07}}</div>
-                                <div class="item-input select_input">
-                                    <select name="alarmType" multiple>
-                                        <option value="8" {{#if AlarmIn}} selected {{/if}}>{{@global.LANGUAGE.GEOFENCE_MSG_12}}</option>
-                                        <option value="16" {{#if AlarmOut}} selected {{/if}}>{{@global.LANGUAGE.GEOFENCE_MSG_13}}</option>                                        
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- 
-                    <li class="item-divider">{{@global.LANGUAGE.GEOFENCE_MSG_03}}</li>                     
-                    <li>
-                        <div class="item-content">                           
-                            <div class="item-inner">
-                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_08}}</div>
-                                <div class="item-input select_time_range_state">
-                                    <select name="timeRangeState">
-                                        <option value="1" selected>{{@global.LANGUAGE.GEOFENCE_MSG_09}}</option>
-                                        <option value="2">{{@global.LANGUAGE.GEOFENCE_MSG_14}}</option>
-                                        <option value="3">{{@global.LANGUAGE.GEOFENCE_MSG_15}}</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <div class="tabs-animated-wrap">
-                        <div class="tabs">
-                            <div class="time_range_block time_range_block1 active" data-state="1">
-                            <div id="tab1" class="time_range_block tab active">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_09}}</div>
-                                            <div class="row">                                                                       
-                                                <div class="col-60">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_19}}</span>      
-                                                        <input type="time" name="timePeriodStart" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="timePeriodEnd" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                            </div>
-                            <div class="time_range_block time_range_block2" data-state="2">
-                            <div id="tab2" class="time_range_block tab ">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_14}}</div>
-                                            <div class="row">                                                                       
-                                                <div class="col-60">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_18}}</span>      
-                                                        <input type="date" name="dayDateStart" placeholder="Start" value="2017-03-11">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="date" name="dayDateEnd" placeholder="End" value="2017-03-11">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">                                                                       
-                                                <div class="col-60">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_19}}</span>      
-                                                        <input type="time" name="dayTimeStart" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="dayTimeEnd" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                            </div>
-                            <div class="time_range_block time_range_block3" data-state="3">
-                            <div id="tab3" class="time_range_block tab ">
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_15}}</div>
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="sunState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_20}}</span>      
-                                                        <input type="time" name="weekTimeStartSun" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="weekTimeEndSun" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="monState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_21}}</span>      
-                                                        <input type="time" name="weekTimeStartMon" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="weekTimeEndMon" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="tueState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_22}}</span>      
-                                                        <input type="time" name="weekTimeStartTue" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="weekTimeEndTue" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="wedState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_23}}</span>      
-                                                        <input type="time" name="weekTimeStartWed" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="weekTimeEndWed" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="thuState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_24}}</span>      
-                                                        <input type="time" name="timePeriodStThu" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="timePeriodThu" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="friState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_25}}</span>      
-                                                        <input type="time" name="weekTimeStartFri" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="weekTimeEndFri" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                                <li>
-                                    <div class="item-content">
-                                        <div class="item-inner">                                    
-                                            <div class="row">  
-                                                <div class="col-10">
-                                                    <label class="label-checkbox item-content no-fastclick">
-                                                                            <input type="checkbox" name="satState" value="" >
-                                                                            <div class="item-inner">
-                                                                                <div class="item-title-row">                                                        
-                                                                                    <div class="item-after">
-                                                                                        <i class="icon icon-form-checkbox"></i>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </label>
-                                                </div>                                                                     
-                                                <div class="col-50">
-                                                    <div class="item-input">   
-                                                        <span>{{@global.LANGUAGE.GEOFENCE_MSG_26}}</span>      
-                                                        <input type="time" name="weekTimeStartSat" placeholder="Start" value="00:00">
-                                                    </div>
-                                                </div>
-                                                <div class="col-40">
-                                                    <div class="item-input">                                                          
-                                                        <input type="time" name="weekTimeEndSat" placeholder="End" value="23:59">
-                                                    </div>
-                                                </div>                                       
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> 
-                            </div>
-                        </div>
-                    </div>
-                     -->
-                    <li>
-                        <label class="label-checkbox item-content no-fastclick">
-                            <input type="checkbox" name="geofenceState" value="" {{#if GeofenceState}} checked="checked" {{/if}} >
-                            <div class="item-media"></div>
-                            <div class="item-inner">
-                                <div class="item-title-row">
-                                    <div class="item-title color-white">{{@global.LANGUAGE.GEOFENCE_MSG_10}}</div>
-                                    <div class="item-after">
-                                        <i class="icon icon-form-checkbox"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </label>
-                    </li>
-                              
-
-                </ul>
-            </div>
-
-        </div>
-   </div>
-  
 </div>
 
+
+
+
+
+<div class="pages">
+    <div class="page with-subnavbar bg-color-page geofence_add_page" data-page="geofence.add">
+        <input type="hidden" name="geofenceEdit" value="{{Edit}}">
+    	
+       <div class="page-content">
+            <div class="position_map">                
+                <div class="map" id="map"></div>
+            </div>
+            <div class="position_bottom"> 
+
+                <div class="content-block-title ">{{@global.LANGUAGE.GEOFENCE_MSG_01}}</div>          
+                <div class="list-block list_geofence_preferences layout-dark list-block-input no-hairlines" >          
+                    <ul>    
+                        <!-- <li class="item-divider">{{@global.LANGUAGE.GEOFENCE_MSG_01}}</li>           -->           
+                        <li>                        
+                            <a href="#" class="item-link smart-select " data-back-text=" " data-searchbar="true" data-searchbar-placeholder="Enter Name">                            
+                                <select name="assets"  multiple>                                
+                                    {{#each Assets}}             
+                                        <option value="{{Id}}" data-imei="{{IMEI}}"  {{#if Selected}} selected {{/if}}>{{Name}}</option> 
+                                    {{/each}} 
+                                </select>
+                                <div class="item-content">
+                                    <div class="item-inner">                                    
+                                        <div class="item-title label">{{@global.LANGUAGE.GEOFENCE_MSG_04}}</div>                                        
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content-block-title ">{{@global.LANGUAGE.GEOFENCE_MSG_02}}</div>          
+                <div class="list-block list_geofence_preferences layout-dark list-block-input no-hairlines" >          
+                    <ul>                        
+                        <!-- <li class="item-divider">{{@global.LANGUAGE.GEOFENCE_MSG_02}}</li>             -->
+                        <li>
+                            <div class="item-content">
+                                <div class="item-inner">
+                                    <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_05}}</div>
+                                    <div class="item-input">
+                                        <input type="text" placeholder="{{@global.LANGUAGE.GEOFENCE_MSG_05}}" name="geofenceName" value="{{Name}}" maxlength="200">
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="align-top">
+                            <form action="" name="searchGeofenceAddress" class="form_geofence_search_address">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_06}}</div>
+                                        <div class="item-input">
+                                            <textarea type="text" placeholder="{{@global.LANGUAGE.GEOFENCE_MSG_11}}" name="geofenceAddress" value="{{Address}}" maxlength="500">{{Address}}</textarea>
+                                            <button type="submit" class=""><i class="f7-icons color-white">search</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>                    
+                        <!-- <li>                        
+                            <div class="item-content">                           
+                                <div class="item-inner">
+                                    <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_07}}</div>
+                                    <div class="item-input select_alarm_type_wrapper">
+                                        <select name="alarmType" multiple>
+                                            <option value="8" {{#if AlarmIn}} selected {{/if}}>{{@global.LANGUAGE.GEOFENCE_MSG_12}}</option>
+                                            <option value="16" {{#if AlarmOut}} selected {{/if}}>{{@global.LANGUAGE.GEOFENCE_MSG_13}}</option>                                        
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
+                        <li>                        
+                            <a href="#" class="item-link smart-select " data-back-text=" " >                            
+                                <select name="alarmType"  multiple>                                
+                                    <option value="8" {{#if AlarmIn}} selected {{/if}}>{{@global.LANGUAGE.GEOFENCE_MSG_12}}</option>
+                                    <option value="16" {{#if AlarmOut}} selected {{/if}}>{{@global.LANGUAGE.GEOFENCE_MSG_13}}</option> 
+                                </select>
+                                <div class="item-content">
+                                    <div class="item-inner ">                                    
+                                        <div class="item-title label">{{@global.LANGUAGE.GEOFENCE_MSG_07}}</div>                                        
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <!-- 
+                        <li class="item-divider">{{@global.LANGUAGE.GEOFENCE_MSG_03}}</li>                     
+                        <li>
+                            <div class="item-content">                           
+                                <div class="item-inner">
+                                    <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_08}}</div>
+                                    <div class="item-input select_time_range_state">
+                                        <select name="timeRangeState">
+                                            <option value="1" selected>{{@global.LANGUAGE.GEOFENCE_MSG_09}}</option>
+                                            <option value="2">{{@global.LANGUAGE.GEOFENCE_MSG_14}}</option>
+                                            <option value="3">{{@global.LANGUAGE.GEOFENCE_MSG_15}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        <div class="tabs-animated-wrap">
+                            <div class="tabs">
+                                <div class="time_range_block time_range_block1 active" data-state="1">
+                                <div id="tab1" class="time_range_block tab active">
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_09}}</div>
+                                                <div class="row">                                                                       
+                                                    <div class="col-60">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_19}}</span>      
+                                                            <input type="time" name="timePeriodStart" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="timePeriodEnd" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                </div>
+                                <div class="time_range_block time_range_block2" data-state="2">
+                                <div id="tab2" class="time_range_block tab ">
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_14}}</div>
+                                                <div class="row">                                                                       
+                                                    <div class="col-60">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_18}}</span>      
+                                                            <input type="date" name="dayDateStart" placeholder="Start" value="2017-03-11">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="date" name="dayDateEnd" placeholder="End" value="2017-03-11">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">                                                                       
+                                                    <div class="col-60">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_19}}</span>      
+                                                            <input type="time" name="dayTimeStart" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="dayTimeEnd" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                </div>
+                                <div class="time_range_block time_range_block3" data-state="3">
+                                <div id="tab3" class="time_range_block tab ">
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label ">{{@global.LANGUAGE.GEOFENCE_MSG_15}}</div>
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="sunState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_20}}</span>      
+                                                            <input type="time" name="weekTimeStartSun" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="weekTimeEndSun" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="monState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_21}}</span>      
+                                                            <input type="time" name="weekTimeStartMon" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="weekTimeEndMon" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="tueState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_22}}</span>      
+                                                            <input type="time" name="weekTimeStartTue" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="weekTimeEndTue" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="wedState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_23}}</span>      
+                                                            <input type="time" name="weekTimeStartWed" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="weekTimeEndWed" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="thuState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_24}}</span>      
+                                                            <input type="time" name="timePeriodStThu" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="timePeriodThu" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="friState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_25}}</span>      
+                                                            <input type="time" name="weekTimeStartFri" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="weekTimeEndFri" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-inner">                                    
+                                                <div class="row">  
+                                                    <div class="col-10">
+                                                        <label class="label-checkbox item-content no-fastclick">
+                                                                                <input type="checkbox" name="satState" value="" >
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-title-row">                                                        
+                                                                                        <div class="item-after">
+                                                                                            <i class="icon icon-form-checkbox"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </label>
+                                                    </div>                                                                     
+                                                    <div class="col-50">
+                                                        <div class="item-input">   
+                                                            <span>{{@global.LANGUAGE.GEOFENCE_MSG_26}}</span>      
+                                                            <input type="time" name="weekTimeStartSat" placeholder="Start" value="00:00">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-40">
+                                                        <div class="item-input">                                                          
+                                                            <input type="time" name="weekTimeEndSat" placeholder="End" value="23:59">
+                                                        </div>
+                                                    </div>                                       
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li> 
+                                </div>
+                            </div>
+                        </div>
+                         -->
+                        
+                        <li class="bw-li-switch">
+                            <div class="item-content">                               
+                                <div class="item-inner">
+                                    <div class="item-title label">{{@global.LANGUAGE.GEOFENCE_MSG_10}}</div>
+                                    <div class="item-input">
+                                        <label class="label-switch">
+                                            <input type="checkbox" name="geofenceState" {{#if GeofenceState}} checked="checked" {{/if}}>
+                                            <div class="checkbox"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        
+
+                    </ul>
+                </div>
+
+            </div>
+       </div>
+      
+    </div>
+
+</div>

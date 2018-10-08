@@ -18,6 +18,34 @@
                         }
                     ]
                 }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "NSCameraUsageDescription": [
+                        {
+                            "xml": "<string>You can take a photo of your asset using camera and upload it into the app</string>",
+                            "count": 1,
+                            "mode": "merge",
+                            "id": "config.xml"
+                        }
+                    ],
+                    "NSPhotoLibraryUsageDescription": [
+                        {
+                            "xml": "<string>You can select photo of your asset in your photo library and upload it into the app</string>",
+                            "count": 1,
+                            "mode": "merge",
+                            "id": "config.xml"
+                        }
+                    ],
+                    "NSPhotoLibraryAddUsageDescription": [
+                        {
+                            "xml": "<string>Need photo library access to save pictures there</string>",
+                            "count": 1,
+                            "mode": "merge",
+                            "id": "config.xml"
+                        }
+                    ]
+                }
             }
         }
     },

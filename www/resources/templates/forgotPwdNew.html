@@ -1,53 +1,58 @@
-<div class="page bg-color-page forgot_password_page" data-page="forgotPwdNew">
-  <div class="navbar color-black ">
+<div class="navbar">
     <div class="navbar-inner">
-      <div class="left">
-        <a href="#" class="back link color-black"> <i class="f7-icons">arrow_left</i></a>
-      </div>
-      <div class="left navbar_title">{{@global.LANGUAGE.LOGIN_MSG05}}</div>
-      <div class="right">
-        <a href="#" class="link  sendPwdNew"><i class="f7-icons">check</i></a> 
-      </div>
+        <div class="left">
+            <a href="#" class="back link"> <i class="f7-icons icon-header-arrow-back"></i></a>
+        </div>
+        <div class="center sliding">{{@global.LANGUAGE.LOGIN_MSG05}}</div>
+        <div class="right">
+            <a href="#" class="link sendPwdNew"><i class="f7-icons icon-header-apply"></i></a> 
+        </div>
     </div>
       
-  </div>
-  <div class="page-content">
-   
-    <div class="content-block-title w-space-normal">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG05}}</div>
-    <div class="list-block layout-dark">
-      <ul> 
-        <li>
-            <div class="item-content">
-                <div class="item-inner">
-                    <div class="item-title label ">{{@global.LANGUAGE.LOGIN_MSG02}}</div>
-                    <div class="item-input">
-                      <input type="text" readonly placeholder="" maxlength="200" name="Email" value="{{Email}}">
-                    </div>
-                </div>
-            </div>
-        </li>         
-        <li>
-            <div class="item-content">
-                <div class="item-inner">
-                    <div class="item-title label ">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG06}}</div>
-                    <div class="item-input">
-                      <input type="password" placeholder="******" maxlength="200" minlength="6" name="newPassword">
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="item-content">
-                <div class="item-inner">
-                    <div class="item-title label ">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG09}}</div>
-                    <div class="item-input">
-                      <input type="password" placeholder="******" maxlength="200" minlength="6" name="newPasswordRepeat">
-                    </div>
-                </div>
-            </div>
-        </li>
-      </ul>
-    </div>    
-              
-  </div>
-</div>   
+</div>
+
+<div class="pages">   
+    <div class="page bg-color-page forgot_password_page" data-page="forgotPwdNew">
+      
+        <div class="page-content">
+           
+            <div class="content-block-title w-space-normal">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG15}}</div>
+            <div class="list-block layout-dark">
+                <ul> 
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label ">{{@global.LANGUAGE.LOGIN_MSG02}}</div>
+                                <div class="item-input">
+                                  <input type="text" readonly placeholder="" maxlength="200" name="Email" value="{{Email}}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>         
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label ">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG06}}</div>
+                                <div class="item-input">
+                                  <input type="password" placeholder="******" maxlength="200" minlength="6" name="newPassword">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="item-content">
+                            <div class="item-inner">
+                                <div class="item-title label ">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG09}}</div>
+                                <div class="item-input">
+                                  <input type="password" placeholder="******" maxlength="200" minlength="6" name="newPasswordRepeat">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="list-block-label">{{@global.LANGUAGE.PASSWORD_FORGOT_MSG05}}</div>
+            </div>    
+                      
+        </div>
+    </div>   
+</div>

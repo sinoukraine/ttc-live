@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="24" id="com.sinopacific.ttclive" version="1.2.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget android-versionCode="27" defaultlocale="en-US" id="com.sinopacific.ttclive" ios-CFBundleVersion="27" version="1.2.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
@@ -21,9 +21,20 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+        <string>You can take a photo of your asset using camera and upload it into the app</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryUsageDescription">
+        <string>You can select photo of your asset in your photo library and upload it into the app</string>
+    </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
+        <string>Need photo library access to save pictures there</string>
+    </edit-config>
+    <config-file parent="ITSAppUsesNonExemptEncryption" platform="ios" target="*-Info.plist">
+        <false />
+    </config-file>
     <splash src="splash.png" />
     <icon src="icon.png" />
-    <preference name="StatusBarBackgroundColor" value="#ee6e73" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="Orientation" value="portrait" />
     <preference name="android-minSdkVersion" value="18" />
