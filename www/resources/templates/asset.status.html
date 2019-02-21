@@ -1,244 +1,221 @@
-<div class="navbar ">
+<div class="page bg-color-page status_page" data-page="asset.status">
+	<div class="navbar color-black">
         <div class="navbar-inner">
             <div class="left">
-                <a href="#" class="link backToIndex"> <i class="f7-icons icon-header-arrow-back"></i></a>
+            	<a href="#" class="link backToIndex color-black"> <i class="f7-icons icon-header-arrow-back"></i></a>
             </div>
-            <div class="center sliding">{{Name}}</div>
-            <div class="right sliding">
-                <a href="#" class="link buttonAssetEdit"><i class="f7-icons icon-header-edit"></i></a>                
+            <div class="left navbar_title">{{Name}}</div>
+            <div class="right">
+            	<a href="#" class="link color-black buttonAssetEdit"><i class="f7-icons icon-header-edit"></i></a>              	
             </div>
-            
-            <!-- Sub navbar -->
-            <div class="subnavbar">
-              <div class="buttons-row">
-                <a href="#" class="button tab-link active" data-id="asset.status" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG07}}</span>
-                </a>
-                <a href="#" class="button  tab-link" data-id="asset.alarm" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ALARM_MSG01}}</span>
-                </a>
-                <a href="#" class="button tab-link" data-id="asset.playback" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG08}}</span>
-                </a>
-                <a href="#" class="button tab-link" data-id="asset.track" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG09}}</span>
-                </a>
-              </div>
-            </div>
-
         </div>
     </div>
-<div class="pages">
-    <div class="page with-subnavbar status_page bg-color-page" data-page="asset.status"> 
-        <div class="page-content">
+    
+	<div class="toolbar tabbar color-black ">
+	    <div class="toolbar-inner">
+	        <a href="#" class="tab-link active" data-id="asset.status" data-href="">
+	            <span class="tabbar-label"><b>{{@global.LANGUAGE.ASSET_STATUS_MSG07}}</b></span>
+	        </a>
+            <a href="#" class="tab-link" data-id="asset.alarm" data-href="">
+                <span class="tabbar-label"><b>{{@global.LANGUAGE.ALARM_MSG01}}</b></span>
+            </a>
+	        <a href="#" class="tab-link" data-id="asset.playback" data-href="">
+	            <span class="tabbar-label"><b>{{@global.LANGUAGE.ASSET_STATUS_MSG08}}</b></span>
+	        </a>
+	        <a href="#" class="tab-link" data-id="asset.track" data-href="">
+	            <span class="tabbar-label"><b>{{@global.LANGUAGE.ASSET_STATUS_MSG09}}</b></span>
+	        </a>
 
-        	<div class="content-block status_block_top">
-        		<div class="row no-gutter">
-    			    <div class="col-33">
-                        <i class="f7-icons icon-other-data"></i>
-                        <p>{{@global.LANGUAGE.ASSET_STATUS_MSG00}}</p>  
-                        <p class="position_data position_time">{{Time}}</p>
-                    </div>       
-                    <div class="col-33">
-                        <i class="f7-icons icon-other-speed"></i>
-                        <p>{{@global.LANGUAGE.ASSET_STATUS_MSG02}}</p>  
-                        <p class="position_data position_speed">{{Speed}}</p>
-                    </div>   
-                    <div class="col-33">
-                        <i class="f7-icons icon-other-distance"></i>                        
-                        <p>{{@global.LANGUAGE.ASSET_STATUS_MSG10}}</p>  
-                        <p class="position_data position_mileage">{{Mileage}}</p>
-                    </div>      
+	        
+	    </div>
+	</div>
 
-                                  
-    			</div>
-        	</div>
-        
+    <div class="page-content">
 
-            <div class="list-block layout-dark  no-hairlines-between  media-list list-block-selectall">
-                <ul>
-                    <li class="item-content "> 
-                        <div class="item-media"><i class="f7-icons icon-other-geolock position_geolock {{#if GeolockState}} state-1 {{else}} color-gray {{/if}}"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title-row">
-                                <div class="item-title open-geolock">{{@global.LANGUAGE.ASSET_STATUS_MSG24}}</div>
-                                <div class="item-after">
-                                    <label class="label-switch  ">
-                                        <input type="checkbox" name="Geolock" {{#if GeolockState}}checked="checked"{{/if}}>
-                                        <div class="checkbox"></div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>                  
-                    </li>
-                    <li class="item-content "> 
-                        <div class="item-media"><i class="f7-icons icon-other-lock position_immob {{#if ImmobState}} state-3 {{else}} color-gray {{/if}}"></i></div>
-                        <div class="item-inner">
-                            <div class="item-title-row">
-                                <div class="item-title open-immob">{{@global.LANGUAGE.ASSET_STATUS_MSG25}}</div>
-                                <div class="item-after">
-                                    <label class="label-switch  ">
-                                        <input type="checkbox" name="Immobilise" {{#if ImmobState}}checked="checked"{{/if}}>
-                                        <div class="checkbox"></div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>                  
-                    </li>
-                </ul> 
-            </div>
-    		
-    		<div class="list-block media-list no-hairlines-between layout-dark status_block_list color-white">                
-                <ul class="row no-gutter">
-                        <!-- <li class="item-content col-100">
-                            <div class="item-media"><i class="f7-icons icon-other-geolock color-gray"></i></div>
-                            <div class="item-inner">                     
-                                <div class="item-title ">{{@global.LANGUAGE.ASSET_STATUS_MSG24}}</div>
-                                 <div class="item-after">
-                                    <label class="label-switch  ">
-                                        <input type="checkbox" name="GeolockState" {{#if GeolockState}}checked="checked"{{/if}}>
-                                        <div class="checkbox"></div>
-                                    </label>
-                                </div>                                      
-                            </div>
-                        </li> -->
-                        
-                    <!-- <div class="col-100"> -->
-                        <li class="item-content col-100">
-                            <div class="item-media"><i class="f7-icons icon-data-address color-gray"></i></div>
-                            <div class="item-inner">                     
-                               	<div class="item-text display_address">{{Address}}</div>
-                                <div class="item-subtext position_coords">{{Coords}}</div>     
-                		    </div>
-                        </li>
-                    <!-- </div> -->
+    	<div class="content-block status_block_top">
+    		<div class="row no-gutter">
+			    <div class="col-33">
+                    <!-- <img src="resources/images/svg_date.svg" alt=""> -->
+                    <i class="f7-icons icon-other-data color-white"></i>
+                    <p class="color-white">{{@global.LANGUAGE.ASSET_STATUS_MSG00}}</p>  
+                    <p class="position_data position_time">{{Time}}</p>
+                </div>                
+                <div class="col-33">
+                    <!-- <img src="resources/images/svg_direction.svg" alt=""> -->
+                    <i class="f7-icons icon-other-speed color-white"></i>
+                    <p class="color-white">{{@global.LANGUAGE.ASSET_STATUS_MSG02}}</p>  
+                    <p class="position_data position_speed">{{Speed}}</p>
                     
-                    {{#if Acc}} 
-                    <!-- <div class="col-50"> -->
-                        <li class="item-content col-50 open-acc ">
-                            <div class="item-media"><i class="f7-icons icon-data-acc color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_acc">                               
-                                    {{Acc}}      
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}} 
-                    {{#if Acc2}} 
-                    <!-- <div class="col-50"> -->
-                        <li class="item-content col-50 open-acc2">
-                            <div class="item-media"><i class="f7-icons icon-other-input color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_acc2">                               
-                                    {{Acc2}}      
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}} 
-                    {{#if Fuel}}        
-                    <!-- <div class="col-50">            -->
-                        <li class="item-content col-50 open-fuel">
-                            <div class="item-media"><i class="f7-icons icon-data-fuel color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_fuel">
-                                    {{Fuel}}                           
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}}   
-                    {{#if Voltage}}
-                    <!-- <div class="col-50"> -->
-                        <li class="item-content col-50 open-voltage">
-                            <div class="item-media"><i class="f7-icons icon-data-voltage color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_voltage">
-                                    {{Voltage}}                        
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}} 
-                    {{#if Battery}}   
-                    <!-- <div class="col-50">                  -->
-                        <li class="item-content col-50 open-battery">
-                            <div class="item-media"><i class="f7-icons icon-data-battery color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_battery">
-                                    {{Battery}}                        
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{#if Heartrate}}   
-                    <!-- <div class="col-50">       -->           
-                        <li class="item-content col-50 open-heartrate">
-                            <div class="item-media"><i class="f7-icons icon-other-hearth color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_heartrate">
-                                    {{Heartrate}}                        
-                                </div>                                          
-                            </div>
-                        </li>
-                   <!--  </div> -->
-                    {{/if}} 
-                    {{/if}}                  
-                    {{#if Temperature}}      
-                    <!-- <div class="col-50">               -->
-                        <li class="item-content col-50 open-temperature">
-                            <div class="item-media"><i class="f7-icons icon-data-temperature color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_temperature">
-                                    {{Temperature}}                   
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}}     
-                    {{#if Direction}}   
-                    <!-- <div class="col-50">                  -->
-                        <li class="item-content col-50 open-direction">
-                            <div class="item-media"><i class="f7-icons icon-data-direction color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_direction">
-                                    {{Direction}}                     
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}}   
-                    {{#if EngineHours}}        
-                    <!-- <div class="col-50">            -->
-                        <li class="item-content col-50 open-engineHours">
-                            <div class="item-media"><i class="f7-icons icon-engine-hours color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_engineHours">
-                                    {{EngineHours}}                           
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}} 
-                    {{#if StoppedDuration}}        
-                    <!-- <div class="col-50">            -->
-                        <li class="item-content col-50 open-stoppedDuration">
-                            <div class="item-media"><i class="f7-icons icon-stopped-time color-gray"></i></div>
-                            <div class="item-inner">                        
-                                <div class="item-text position_stoppedDuration">
-                                    {{StoppedDuration}}                           
-                                </div>                                          
-                            </div>
-                        </li>
-                    <!-- </div> -->
-                    {{/if}}                        
-                </ul>                
-            </div>
-        	
+                </div> 
+                <div class="col-33">
+                    <!-- <img src="resources/images/svg_speed.svg" alt=""> -->
+                    <i class="f7-icons icon-other-distance color-white"></i>
+                    <p class="color-white">{{@global.LANGUAGE.ASSET_STATUS_MSG10}}</p>  
+                    <p class="position_data position_mileage">{{Mileage}}</p>                    
+                </div>               
+			</div>
+    	</div>
 
-        	
+        <div class="list-block layout-dark no-hairlines-between list-block-selectall">
+            <ul>
+                <li class="bw-li-switch ">
+                    <div class="item-content  ">  
+                        <div class="item-media"><i class="f7-icons icon-other-geolock position_geolock {{#if GeolockState}} state-1 {{else}} color-gray {{/if}}"></i></div>                             
+                        <div class="item-inner">
+                            <div class="item-title open-geolock color-white">{{@global.LANGUAGE.ASSET_STATUS_MSG24}}</div>                       
+                            <label class="label-switch no-fastclick">
+                                <input type="checkbox" name="Geolock" {{#if GeolockState}} checked="checked" {{/if}}>
+                                <div class="checkbox"></div>
+                            </label>                        
+                        </div>
+                    </div>
+                </li>
+                <li class="bw-li-switch ">
+                    <div class="item-content ">  
+                        <div class="item-media"><i class="f7-icons icon-other-lock position_immob {{#if ImmobState}} state-3 {{else}} color-gray {{/if}}"></i></div>                             
+                        <div class="item-inner">
+                            <div class="item-title open-immob color-white">{{@global.LANGUAGE.ASSET_STATUS_MSG25}}</div>                       
+                            <label class="label-switch no-fastclick">
+                                <input type="checkbox" name="Immobilise" {{#if ImmobState}} checked="checked" {{/if}}>
+                                <div class="checkbox"></div>
+                            </label>                        
+                        </div>
 
+                    </div>
+                </li>
+                
+                
+            </ul>
         </div>
+
+
+		<div class="list-block layout-dark media-list  status_block_list">                
+            <ul class="row no-gutter">                
+                <div class="col-100">
+                    <li class="item-content with-borders">
+                        <div class="item-media"><i class="f7-icons icon-data-address color-gray"></i></div>
+                        <div class="item-inner">                     
+                           	<div class="item-text display_address">{{Address}}</div>
+                            <div class="item-subtext position_coords">{{Coords}}</div>                          
+            		    </div>
+                    </li>
+                </div>
+
+                {{#if Acc}} 
+                <div class="col-50">
+                    <li class="item-content open-acc">
+                        <div class="item-media"><i class="f7-icons icon-data-acc color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_acc">                               
+                                {{Acc}}      
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}} 
+                {{#if Acc2}} 
+                <div class="col-50">
+                    <li class="item-content open-acc2">
+                        <div class="item-media"><i class="f7-icons icon-other-input color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_acc2">                               
+                                {{Acc2}}      
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}} 
+                {{#if Fuel}}        
+                <div class="col-50">           
+                    <li class="item-content open-fuel">
+                        <div class="item-media"><i class="f7-icons icon-data-fuel color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_fuel">
+                                {{Fuel}}                           
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}}   
+                {{#if Voltage}}
+                <div class="col-50">
+                    <li class="item-content open-voltage">
+                        <div class="item-media"><i class="f7-icons icon-data-voltage color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_voltage">
+                                {{Voltage}}                        
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}} 
+                {{#if Battery}}   
+                <div class="col-50">                 
+                    <li class="item-content open-battery">
+                        <div class="item-media"><i class="f7-icons icon-data-battery color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_battery">
+                                {{Battery}}                        
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}}                  
+                {{#if Temperature}}      
+                <div class="col-50">              
+                    <li class="item-content open-temperature">
+                        <div class="item-media"><i class="f7-icons icon-data-temperature color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_temperature">
+                                {{Temperature}}                   
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}}     
+                {{#if Direction}}   
+                <div class="col-50">                 
+                    <li class="item-content open-direction">
+                        <div class="item-media"><i class="f7-icons icon-data-direction color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_direction">
+                                {{Direction}}                     
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}}   
+                {{#if EngineHours}}        
+                <div class="col-50">           
+                    <li class="item-content open-engineHours">
+                        <div class="item-media"><i class="f7-icons icon-engine-hours color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_engineHours">
+                                {{EngineHours}}                           
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}} 
+                {{#if StoppedDuration}}        
+                <div class="col-50">           
+                    <li class="item-content open-stoppedDuration">
+                        <div class="item-media"><i class="f7-icons icon-stopped-time color-gray"></i></div>
+                        <div class="item-inner">                        
+                            <div class="item-text position_stoppedDuration">
+                                {{StoppedDuration}}                           
+                            </div>                                          
+                        </div>
+                    </li>
+                </div>
+                {{/if}}              
+                
+                
+            </ul>                
+        </div>
+    	
+
+    	
+
     </div>
 </div>

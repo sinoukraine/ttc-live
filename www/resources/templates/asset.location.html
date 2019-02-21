@@ -1,83 +1,63 @@
-<div class="navbar ">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="back link "> <i class="f7-icons icon-header-arrow-back"></i></a>
+<div class="page no-swipeback bg-color-page track_page" data-page="asset.location">
+	<div class="navbar color-black ">
+        <div class="navbar-inner">
+            <div class="left">
+            	<a href="#" class="back link color-black"> <i class="f7-icons icon-header-arrow-back"></i></a>
+            </div>
+            <div class="left navbar_title">{{Name}}</div>
+           	<!-- <div class="right">
+                <a href="#" class="link refreshTrack"><i class="f7-icons icon-header-track"></i></a>
+            </div> -->
         </div>
-        <div class="center sliding">{{Name}}</div>
-        <!-- <div class="right sliding">
-            <a href="#" class="link refreshTrack"><i class="f7-icons icon-header-update"></i></a>
-        </div> -->
-        
-        <!-- Sub navbar -->
-        <!-- <div class="subnavbar">
-            <div class="buttons-row">
-                <a href="#" class="button tab-link " data-id="asset.status" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG07}}</span>
-                </a>
-                <a href="#" class="button tab-link " data-id="asset.alarm" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ALARM_MSG01}}</span>
-                </a>
-                <a href="#" class="button tab-link " data-id="asset.playback" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG08}}</span>
-                </a>
-                <a href="#" class="button tab-link active" data-id="asset.track" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG09}}</span>
+    </div>
+
+    <div class="page-content">
+
+    	<div class="position_map "> 
+            <div class="float_button_wrapper pano_button_wrapper bg-blue">
+                <a href="#" class="link color-white pano_button" data-lat="{{Lat}}" data-lng="{{Lng}}">
+                    <i class="pano_preview_img"></i>                                   
                 </a>
             </div>
-        </div> -->
-    </div>
-</div>
-
-<div class="pages">
-    <div class="page no-swipeback bg-color-page track_page" data-page="asset.location">
-        <div class="page-content">
-
-        	<div class="position_map "> 
-                <div class="map" id="map"></div>
-                <div class="float_button_wrapper pano_button_wrapper bg-blue">
-                    <a href="#" class="link color-white pano_button" data-lat="{{Lat}}" data-lng="{{Lng}}">
-                        <i class="pano_preview_img"></i>                                   
-                    </a>
+            <div class="float_button_wrapper route_button_wrapper bg-color-page">
+                <a href="#" class="link external color-white routeButton" data-lat="{{Lat}}" data-lng="{{Lng}}">
+                    <i class="f7-icons icon-other-route color-white"></i>
+                    <span>{{@global.LANGUAGE.ASSET_TRACK_MSG16}}</span>                    
+                </a>
+            </div>
+            <div class="map" id="map"></div>
+    	</div>
+        <div class="position_bottom">
+            
+            <div class="row no-gutter">
+                
+                <div class="col-33 color-white">
+                    <i class="f7-icons icon-other-data color-white"></i>
+                    <p>{{@global.LANGUAGE.ASSET_TRACK_MSG00}}</p>  
+                    <p class="position_data position_time">{{Time}}</p>
+                </div> 
+                <div class="col-33 color-white">
+                    <i class="f7-icons icon-other-speed color-white"></i>
+                    <p>{{@global.LANGUAGE.ASSET_TRACK_MSG02}}</p>  
+                    <p class="position_data position_speed">{{Speed}}</p>
                 </div>
-                <div class="float_button_wrapper route_button_wrapper bg-color-page">
-                    <a href="#" class="link color-white routeButton" data-lat="{{Lat}}" data-lng="{{Lng}}" >
-                        <i class="f7-icons icon-other-route color-white"></i>
-                        <span>{{@global.LANGUAGE.ASSET_TRACK_MSG16}}</span>                    
-                    </a>
-                </div>
-        	</div>
-            <div class="position_bottom">
-                <div class="row">
-                    <div class="col-100 address color-white">                    
-                        <div class="position_bottom_img_right">
-                            <p class="display_address">{{Address}}</p>
-                            <div class="item-subtext position_latlng">{{Coords}}</div>  
-                        </div>
-                    </div>
-                </div>
-                <div class="row no-gutter">
-                    <div class="col-33 color-white">
-                        <!-- <img src="resources/images/svg_date.svg" alt=""> -->
-                        <i class="f7-icons icon-other-data color-white"></i>
-                        <p>{{@global.LANGUAGE.ASSET_TRACK_MSG00}}</p>  
-                        <p class="position_data position_time">{{Time}}</p>
-                    </div> 
-                    <div class="col-33 color-white">
-                        <!-- <img src="resources/images/svg_speed.svg" alt=""> -->
-                        <i class="f7-icons icon-other-speed color-white"></i>
-                        <p>{{@global.LANGUAGE.ASSET_TRACK_MSG02}}</p>  
-                        <p class="position_data position_speed">{{Speed}}</p>
-                    </div>
-                    <div class="col-33 color-white">
-                        <!-- <img src="resources/images/svg_mileage.svg" alt=""> -->
-                        <i class="f7-icons icon-other-distance color-white"></i>
-                        <p >{{@global.LANGUAGE.ASSET_TRACK_MSG03}}</p>  
-                        <p class="position_data position_mileage">{{Mileage}}</p>
-                    </div>
-                    
+                <div class="col-33 color-white">
+                    <i class="f7-icons icon-other-distance color-white"></i>
+                    <p >{{@global.LANGUAGE.ASSET_TRACK_MSG03}}</p>  
+                    <p class="position_data position_mileage">{{Mileage}}</p>
                 </div>
                 
             </div>
-        </div>	
+            <div class="divider"></div>
+            <div class="row no-gutter">
+                <div class="col-100 color-white address">  
+                    <div class="position_bottom_img_right">
+                        <p class="display_address">{{Address}}</p>
+                        <div class="item-subtext position_latlng">{{Coords}}</div>  
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+	
 </div>

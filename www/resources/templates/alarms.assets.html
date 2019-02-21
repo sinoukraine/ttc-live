@@ -1,57 +1,50 @@
-
-<div class="navbar color-black">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="link icon-only open-panel color-black"> <i class="f7-icons icon-header-menu"></i></a>
-        </div>
-        <div class="center sliding">{{@global.LANGUAGE.ALARM_MSG06}}</div>
-        <div class="right sliding">
-            <a href="#" class="link saveAssets"><i class="f7-icons">check</i></a>               
-        </div>
-    </div>
-</div>    
-
-<div class="pages">
-    <div class="page bg-color-page " data-page="alarms.assets">
-    	
-    	
-    	<form class="searchbar searchbarAlarmsAssets" >
-            <div class="searchbar-input">
-                <input type="search" placeholder="{{@global.LANGUAGE.COM_MSG06}}">
-                <a href="#" class="searchbar-clear"></a>
+<div class="page bg-color-page " data-page="alarms.assets">
+	<div class="navbar color-black">
+        <div class="navbar-inner">
+            <div class="left">
+            	<a href="#" class="link icon-only open-panel color-black"> <i class="f7-icons icon-header-menu"></i></a>
             </div>
-            <a href="#" class="searchbar-cancel color-black">{{@global.LANGUAGE.COM_MSG04}}</a>
-        </form>        
+            <div class="left navbar_title">{{@global.LANGUAGE.ALARM_MSG06}}</div>
+            <div class="right">
+            	<a href="#" class="link saveAssets"><i class="f7-icons">check</i></a>           	
+            </div>
+        </div>
+    </div>    
+	
+	<form class="searchbar searchbarAlarmsAssets theme-white" >
+        <div class="searchbar-input">
+            <input type="search" placeholder="{{@global.LANGUAGE.COM_MSG06}}">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel">{{@global.LANGUAGE.COM_MSG04}}</a>
+    </form>
 
-        <div class="searchbar-overlay"></div>
+    <div class="searchbar-overlay"></div>
 
-        <div class="page-content">
-            <div class="list-block no-hairlines layout-dark media-list list-block-selectall">
-                <ul>
-                    <li class="item-content alarm_title">                                   
+    <div class="page-content">
+        <div class="list-block list-block-selectall">
+            <ul>
+                <li class="bw-li-switch">
+                    <div class="item-content">                               
                         <div class="item-inner">
-                            <div class="item-title-row">
-                                <div class="item-title color-white">{{@global.LANGUAGE.COM_MSG30}}</div>
-                                <div class="item-after">
-                                    <label class="label-switch  ">
-                                        <input type="checkbox" name="select-all" >
-                                        <div class="checkbox"></div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>                  
-                    </li>
-                </ul> 
-            </div>
+                            <div class="item-title color-white">{{@global.LANGUAGE.COM_MSG30}}</div>                        
+                            <label class="label-switch">
+                                <input type="checkbox" name="select-all" >
+                                <div class="checkbox"></div>
+                            </label>                        
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-    		<div class="content-block alarms-assets-search-nothing-found searchbar-not-found color-white">                               
-                {{@global.LANGUAGE.COM_MSG05}}
-            </div>        
-            <div class="list-block media-list virtual-list list-block-search-alarms-assets layout-dark alarmsAssetList">          
-                
-            </div>
+		<div class="content-block alarms-assets-search-nothing-found searchbar-not-found color-white">                               
+            {{@global.LANGUAGE.COM_MSG05}}
+        </div>        
+        <div class="list-block media-list virtual-list no-hairlines list-block-search-alarms-assets layout-dark alarmsAssetList">          
             
         </div>
-
+        
     </div>
+
 </div>
