@@ -446,3 +446,25 @@ Protocol.OUNING_WATCH = JClass(Protocol.Common,{
     }
 });
 Protocol.ClassManager.add("OUNING_WATCH", Protocol.OUNING_WATCH);
+
+Protocol.VT900_DOOR = JClass(Protocol.Common,{
+	STATIC: {
+
+    },
+	constructor: function(arg) {
+	    this.initDeviceInfo(arg);
+	    this._FIELD_INT2 = arg._FIELD_INT2;
+		this.posInfo = {};
+    },
+	initPosInfoEx: function (ary, posInfo) {
+	    posInfo.fuel = ary[24];
+        posInfo.alt = ary[25];
+        posInfo.rfid = ary[26];
+    },
+    initHisPosInfoEx: function (ary, posInfo) {
+        posInfo.fuel = ary[22];
+        posInfo.alt = ary[23];
+        posInfo.rfid = ary[24];
+    },    
+});
+Protocol.ClassManager.add("VT900_DOOR", Protocol.VT900_DOOR);

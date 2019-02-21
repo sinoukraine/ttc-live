@@ -1313,7 +1313,7 @@ App.onPageInit('alarms.select', function (page) {
 
     var alarm = $$(page.container).find('input[name = "checkbox-alarm"]');    
 
-    var alarmFields = ['accOff','accOn','customAlarm','custom2LowAlarm','geolock','geofenceIn','geofenceOut','illegalIgnition','lowBattery','mainBatteryFail','sosAlarm','speeding','tilt'];  
+    var alarmFields = ['accOff','accOn','customAlarm','custom2LowAlarm','geolock','geofenceIn','geofenceOut','illegalIgnition','lowBattery','mainBatteryFail','sosAlarm','speeding','tilt', 'harshAcc', 'harshBrk'];  
    
     var allCheckboxesLabel = $$(page.container).find('label.item-content');
     var allCheckboxes = allCheckboxesLabel.find('input');
@@ -1725,7 +1725,7 @@ App.onPageInit('resetPwd', function (page) {
 App.onPageInit('asset.alarm', function (page) {
     var alarm = $$(page.container).find('input[name = "checkbox-alarm"]');      
 
-    var alarmFields = ['accOff','accOn','customAlarm','custom2LowAlarm','geolock','geofenceIn','geofenceOut','illegalIgnition','lowBattery','mainBatteryFail','sosAlarm','speeding','tilt'];  
+    var alarmFields = ['accOff','accOn','customAlarm','custom2LowAlarm','geolock','geofenceIn','geofenceOut','illegalIgnition','lowBattery','mainBatteryFail','sosAlarm','speeding','tilt', 'harshAcc', 'harshBrk'];  
 
     var allCheckboxesLabel = $$(page.container).find('label.item-content');
     var allCheckboxes = allCheckboxesLabel.find('input');
@@ -3474,6 +3474,14 @@ function loadAlarmPage(){
             state: true,
             val: 256,
         },
+        harshAcc: {
+            state: true,
+            val: 33554432,
+        },
+        harshBrk: {
+            state: true,
+            val: 2097152,
+        },
         alarm: {
             state: true,
             //val: 0,
@@ -3487,7 +3495,7 @@ function loadAlarmPage(){
                 alarms[key].state = false;
             }            
         });
-        if (assetAlarmVal == 1279934) {
+        if (assetAlarmVal == 36931518) {
             alarms.alarm.state = false;
         }
         
@@ -3516,6 +3524,8 @@ function loadAlarmPage(){
             sosAlarm: alarms.sosAlarm.state,
             speeding: alarms.speeding.state,
             tilt: alarms.tilt.state,
+            harshAcc: alarms.harshAcc.state,
+            harshBrk: alarms.harshBrk.state,
         }
     });
 }

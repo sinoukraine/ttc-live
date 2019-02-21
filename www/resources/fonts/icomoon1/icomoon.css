@@ -1,0 +1,109 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('icomoon.eot?n5ag3i');
+  src:  url('icomoon.eot?n5ag3i#iefix') format('embedded-opentype'),
+    url('icomoon.ttf?n5ag3i') format('truetype'),
+    url('icomoon.woff?n5ag3i') format('woff'),
+    url('icomoon.svg?n5ag3i#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-status:before {
+  content: "\e902";
+}
+.icon-driver .path1:before {
+  content: "\e907";
+  color: rgb(63, 168, 178);
+}
+.icon-driver .path2:before {
+  content: "\e908";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-driver .path3:before {
+  content: "\e909";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-petrol .path1:before {
+  content: "\e90a";
+  color: rgb(63, 168, 178);
+}
+.icon-petrol .path2:before {
+  content: "\e90b";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-petrol .path3:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-satellite:before {
+  content: "\e90d";
+}
+.icon-signal:before {
+  content: "\e90e";
+}
+.icon-speed .path1:before {
+  content: "\e90f";
+  color: rgb(63, 168, 178);
+}
+.icon-speed .path2:before {
+  content: "\e910";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-temperature .path1:before {
+  content: "\e911";
+  color: rgb(63, 168, 178);
+}
+.icon-temperature .path2:before {
+  content: "\e912";
+  margin-left: -1em;
+  color: rgb(255, 255, 255);
+}
+.icon-add_geofence:before {
+  content: "\e913";
+}
+.icon-geofence:before {
+  content: "\e914";
+}
+.icon-geofence_menu:before {
+  content: "\e915";
+}
+.icon-apply:before {
+  content: "\e900";
+}
+.icon-back:before {
+  content: "\e901";
+}
+.icon-menu:before {
+  content: "\e903";
+}
+.icon-playback:before {
+  content: "\e904";
+}
+.icon-track:before {
+  content: "\e905";
+}
+.icon-pencil:before {
+  content: "\e906";
+}
+
