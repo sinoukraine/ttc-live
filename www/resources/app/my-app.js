@@ -728,12 +728,18 @@ App.onPageInit('notification', function(page){
                     item.mileage = '-';
                 }
                 
+                var alertName = Protocol.Helper.getAlertNameByType(item.type);
+                
                 ret = '<li class="swipeout" data-id="'+item.listIndex+'" data-title="'+item.title+'" data-type="'+item.type+'" data-imei="'+item.imei+'" data-name="'+item.name+'" data-lat="'+item.lat+'" data-lng="'+item.lng+'" data-time="'+item.time+'" data-speed="'+item.speed+'" data-direct="'+item.direct+'" data-mileage="'+item.mileage+'">' +                        
                             '<div class="swipeout-content item-content">' +
                                 '<div class="item-inner">' +
-                                    '<div class="item-title-row">' +
-                                        '<div class="item-title">'+item.title+'</div>' +
-                                        '<div class="item-after">'+item.time+'</div>' +
+                                    '<div class="item-title-row">';
+                                        if (alertName) {
+                ret +=                  '<div class="item-title">' + alertName + ' - ' + item.title + '</div>';
+                                        }else{
+                ret +=                  '<div class="item-title">' + item.title + '</div>';      
+                                        }
+                ret +=                  '<div class="item-after">' + item.time + '</div>' +                                        
                                     '</div>' +
                                     '<div class="item-subtitle">'+item.name+'</div>' +                                        
                                 '</div>' +
