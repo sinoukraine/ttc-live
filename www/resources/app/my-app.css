@@ -168,6 +168,21 @@ html:not(.watch-active-state) .button.btn_login.button-fill:active{
 .svg_menu{
 	width: 32px;
 }
+
+.theme-dealer .content-block-title.bw-li-switch {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
 /* .svg_menu_st0{
 	fill:#414142;
 } */
@@ -216,6 +231,30 @@ html:not(.watch-active-state) .button.btn_login.button-fill:active{
 }
 .theme-dealer .panel{
 	background: #fff;
+}
+
+.list-button-label {
+    padding: 0 15px;
+    text-align: center;
+    display: block;
+    line-height: 43px;
+    text-transform: uppercase;
+}
+
+.list-block .list-button-label:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: auto;
+    top: auto;
+    height: 1px;
+    width: 100%;
+    background-color: #c8c7cc;
+    display: block;
+    z-index: 15;
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
 }
 
 /* .theme-bw .button:not(.button-fill).active {

@@ -224,21 +224,3 @@
 .icon-other-hearth:before {
   content: "\39";
 }
-.icon-other-user-manual:before {
-  content: "\21";
-}
-.icon-other-call:before {
-  content: "\22";
-}
-.icon-other-door:before {
-  content: "\23";
-}
-.icon-other-sort:before {
-  content: "\24";
-}
-.icon-other-report-theft:before {
-  content: "\25";
-}
-.icon-menu-reports:before {
-  content: "\26";
-}
