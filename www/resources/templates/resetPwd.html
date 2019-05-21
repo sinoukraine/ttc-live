@@ -1,75 +1,73 @@
-<div class="page bg-color-page profile_page" data-page="resetPwd">
-	<div class="navbar color-black ">
-        <div class="navbar-inner">
-            <div class="left">
-            	<!-- <a href="#" class="back link color-black"> <i class="f7-icons">arrow_left</i></a> -->
-            	<a href="#" class="link icon-only open-panel color-black"> <i class="f7-icons icon-header-menu"></i></a>
-            </div>
-            <div class="left navbar_title navbar_title_index">{{@global.LANGUAGE.MENU_MSG03}}</div>
-           	<div class="right">
-           		<a href="#" class="link  saveResetPwd"><i class="f7-icons icon-header-apply"></i></a>
-           	</div>
+<div class="navbar bg-white color-black ">
+    <div class="navbar-inner">
+        <div class="left ">            	
+        	<a href="#" class="link icon-only open-panel color-black"> <i class="f7-icons icon-header-menu"></i></a>
         </div>
-    </div>
+        <div class="center ">{{@global.LANGUAGE.MENU_MSG03}}</div>
+       	<div class="right ">
+       		<a href="#" class="link saveResetPwd"><i class="f7-icons icon-header-apply"></i></a> 
+       	</div>
 
-    <div class="toolbar tabbar color-black ">
-	    <div class="toolbar-inner">
-	        <a href="#" class="tab-link" data-id="profile" data-href="">
-	            <span class="tabbar-label"><b>{{@global.LANGUAGE.PROFILE_MSG08}}</b></span>
-	        </a>
-            <a href="#" class="tab-link active" data-id="resetPwd" data-href="">
-                <span class="tabbar-label"><b>{{@global.LANGUAGE.PROFILE_MSG04}}</b></span>
-            </a>
+       	<div class="subnavbar">
+            <div class="buttons-row">
+				<a href="#" class="button tab-link" data-id="profile" data-href="">
+		            <span class="tabbar-label"><b>{{@global.LANGUAGE.PROFILE_MSG08}}</b></span>
+		        </a>
+	            <a href="#" class="button tab-link active" data-id="resetPwd" data-href="">
+	                <span class="tabbar-label"><b>{{@global.LANGUAGE.PROFILE_MSG04}}</b></span>
+	            </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="pages">
+	<div class="page with-subnavbar bg-color-page profile_page" data-page="resetPwd">
+	    <div class="page-content">
+	    	
+			<div class="content-block-title color-boatwatch">{{@global.LANGUAGE.PROFILE_MSG10}}</div>
+	    	<div class="list-block layout-dark list-block-input no-hairlines">    		
+			  	<ul>			    		    	
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.PROFILE_MSG05}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="password" placeholder="{{@global.LANGUAGE.PROFILE_MSG05}}" name="Password" maxlength="200">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.PROFILE_MSG09}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="password" placeholder="{{@global.LANGUAGE.PROFILE_MSG09}}" name="NewPassword" maxlength="200">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>				   
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner ">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.PROFILE_MSG06}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="password" placeholder="{{@global.LANGUAGE.PROFILE_MSG06}}" name="NewPasswordConfirm" maxlength="200">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+					    	
+	 
+					    	
+			    </ul>
+			</div>
+			
+	            
+	        
 	    </div>
+		
 	</div>
-
-    <div class="page-content">
-    	
-		
-    	<div class="list-block media-list layout-dark no-hairlines ">    		
-		  	<ul>
-		    	<li class="item-divider no-before">{{@global.LANGUAGE.PROFILE_MSG10}}</li>		    	
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.PROFILE_MSG05}}</div>
-		    	  	  	  	<div class="item-input">
-		    	  	  	  	  	<input type="password" placeholder="{{@global.LANGUAGE.PROFILE_MSG05}}" name="Password" maxlength="200">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.PROFILE_MSG09}}</div>
-		    	  	  	  	<div class="item-input">
-		    	  	  	  	  	<input type="password" placeholder="{{@global.LANGUAGE.PROFILE_MSG09}}" name="NewPassword" maxlength="200">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>				   
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner ">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.PROFILE_MSG06}}</div>
-		    	  	  	  	<div class="item-input">
-		    	  	  	  	  	<input type="password" placeholder="{{@global.LANGUAGE.PROFILE_MSG06}}" name="NewPasswordConfirm" maxlength="200">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-				    	
- 
-				    	
-		    </ul>
-		</div>
-		
-            
-        
-    </div>
-	
 </div>

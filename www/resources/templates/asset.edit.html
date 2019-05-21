@@ -1,147 +1,151 @@
-<div class="page bg-color-page edit_page" data-page="asset.edit">
-	<div class="navbar color-black">
-        <div class="navbar-inner">
-            <div class="left">
-            	<a href="#" class="back link color-black"> <i class="f7-icons">arrow_left</i></a>
-            </div>
-            <div class="left navbar_title">{{Name}}</div>
-           	<div class="right">
-           		<a href="#" class="link  saveAssetEdit"><i class="f7-icons icon-header-apply"></i></a>
-           	</div>
+<div class="navbar ">
+    <div class="navbar-inner">
+        <div class="left">
+        	<a href="#" class="back link "> <i class="f7-icons icon-header-arrow-back"></i></a>
         </div>
+        <div class="center sliding">{{Name}}</div>
+       	<div class="right sliding">
+       		<a href="#" class="link  saveAssetEdit"><i class="f7-icons icon-header-apply"></i></a> 
+       	</div>
     </div>
-
-    <div class="page-content">
-    	<div class="content-block edit_top color-white">
-    		<div class="asset_img">
-    			<img src="{{AssetImg}}" alt="">
-    			<div class="upload_photo ">
-    				<i class="icon-pencil color-white"></i>
-    			</div>
-    		</div>    
-    		<!-- <img src="resources/images/svg_asset_edit.svg" alt="" class=""> -->
-    				
-    		<!-- <p>imei: <span class="asset_edit_imei">{{IMEI}}</span> <span class="asset_edit_prdtname">({{PRDTName}})</span></p> -->
-    	</div>
-
-    	<div class="list-block media-list layout-dark no-hairlines ">
-    		<input type="hidden" name="IMEI" value="{{IMEI}}">
-		  	<ul>	
-		  		<li class="item-divider">imei: {{IMEI}} ({{PRDTName}})</li>	    	
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG01}}</div>
-		    	  	  	  	<div class="item-input">
-		    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG01}}" name="Name" value="{{Name}}">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG00}}</div>
-		    	  	  	  	<div class="item-input">
-		    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG00}}" name="Tag" value="{{Tag}}">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG02}}</div>
-		    	  	  	  	<div class="item-input no-after">
-		    	  	  	  	  	<!-- <input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG02}}" name="Unit" value="{{Unit}}"> -->
-		    	  	  	  	  	<select name="Unit" data-set="{{Unit}}">
-					              	<option value="KPH">km/h</option>
-					              	<option value="MPH">mile/h</option>
-					              	<option value="MPS">m/s</option>
-					              	<option value="KT">kt</option> 
-					            </select>
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-		    	<li class="item-divider">{{@global.LANGUAGE.ASSET_EDIT_MSG03}}</li>
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG04}}</div>
-		    	  	  	  	<div class="item-input">
-		    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG04}}" name="Mileage" value="{{Mileage}}" class="only_numbers">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-		    	<li>
-		    	  	<div class="item-content">
-		    	  		<div class="item-media"></div>
-		    	  	  	<div class="item-inner">
-		    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG05}}</div>
-		    	  	  	  	<div class="item-input no-after">
-		    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG05}}" name="Runtime" value="{{Runtime}}" class="only_numbers">
-		    	  	  	  	</div>
-		    	  	  	</div>
-		    	  	</div>
-		    	</li>
-		    	<li class="item-divider">{{@global.LANGUAGE.ASSET_EDIT_MSG06}}</li>		    	
-				<li>
-				  	<div class="item-content">
-				  		<div class="item-media"></div>
-				  	  	<div class="item-inner">
-				  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG07}}</div>
-				  	  	  	<div class="item-input">
-				  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG07}}" name="Describe1" value="{{Describe1}}">
-				  	  	  	</div>
-				  	  	</div>
-				  	</div>
-				</li>
-				<li>
-				  	<div class="item-content">
-				  		<div class="item-media"></div>
-				  	  	<div class="item-inner">
-				  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG08}}</div>
-				  	  	  	<div class="item-input">
-				  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG08}}" name="Describe2" value="{{Describe2}}">
-				  	  	  	</div>
-				  	  	</div>
-				  	</div>
-				</li>
-				<li>
-				  	<div class="item-content">
-				  		<div class="item-media"></div>
-				  	  	<div class="item-inner">				  	  		
-				  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG09}}</div>
-				  	  	  	<div class="item-input">
-				  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG09}}" name="Describe3" value="{{Describe3}}">
-				  	  	  	</div>
-				  	  	</div>
-				  	</div>
-				</li>
-				<li>
-				  	<div class="item-content">
-				  		<div class="item-media"></div>
-				  	  	<div class="item-inner">
-				  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG10}}</div>
-				  	  	  	<div class="item-input">
-				  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG10}}" name="Describe4" value="{{Describe4}}" class="only_numbers" maxlength="4">
-				  	  	  	</div>
-				  	  	</div>
-				  	</div>
-				</li>
-				    
-				    	
-		    </ul>
-		</div>
+</div>
+<div class="pages">
+	<div class="page bg-color-page edit_page" data-page="asset.edit">
 		
-            
-        
-    </div>
-	
+
+	    <div class="page-content">
+	    	<div class="content-block edit_top">
+	    		<div class="asset_img">
+	    			<img src="{{AssetImg}}" alt="">
+	    			<div class="upload_photo ">
+		    			<i class="icon icon-edit color-white"></i>
+		    		</div>
+	    		</div>
+
+	    		<!-- <img src="resources/images/svg_asset_edit.svg" alt="" class=""> -->
+
+	    		
+	    	</div>
+			
+			<div class="content-block-title">imei: {{IMEI}} ({{PRDTName}})</div>
+	    	<div class="list-block layout-dark list-block-input list-block-input no-hairlines">
+	    		<input type="hidden" name="IMEI" value="{{IMEI}}">	    		
+			  	<ul>		    	
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG01}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG01}}" name="Name" value="{{Name}}">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG00}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG00}}" name="Tag" value="{{Tag}}">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG02}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<!-- <input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG02}}" name="Unit" value="{{Unit}}"> -->
+			    	  	  	  	  	<select name="Unit" data-set="{{Unit}}">
+						              	<option value="KPH">km/h</option>
+						              	<option value="MPH">mile/h</option>
+						              	<option value="MPS">m/s</option>
+						              	<option value="KT">kt</option> 
+						            </select>
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+			    </ul>
+			</div>
+			<div class="content-block-title">{{@global.LANGUAGE.ASSET_EDIT_MSG03}}</div>
+			<div class="list-block layout-dark list-block-input no-hairlines">
+				<ul>		 
+			    	<!-- <li class="item-divider">{{@global.LANGUAGE.ASSET_EDIT_MSG03}}</li> -->
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG04}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG04}}" name="Mileage" value="{{Mileage}}" class="only_numbers">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+			    	<li>
+			    	  	<div class="item-content">
+			    	  	  	<div class="item-inner">
+			    	  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG05}}</div>
+			    	  	  	  	<div class="item-input">
+			    	  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG05}}" name="Runtime" value="{{Runtime}}" class="only_numbers">
+			    	  	  	  	</div>
+			    	  	  	</div>
+			    	  	</div>
+			    	</li>
+			   	</ul>
+			</div>
+			<div class="content-block-title">{{@global.LANGUAGE.ASSET_EDIT_MSG06}}</div>
+			<div class="list-block layout-dark list-block-input no-hairlines">
+				<ul>
+			    	<!-- <li class="item-divider">{{@global.LANGUAGE.ASSET_EDIT_MSG06}}</li>	 -->
+					<li>
+					  	<div class="item-content">
+					  	  	<div class="item-inner">
+					   	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG07}}</div>
+					   	  	  	<div class="item-input">
+					   	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG07}}" name="Describe1" value="{{Describe1}}">
+					  	  	  	</div>
+					  	  	</div>
+					  	</div>
+					</li>
+					<li>
+					  	<div class="item-content">
+					  	  	<div class="item-inner">
+					  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG08}}</div>
+					  	  	  	<div class="item-input">
+					  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG08}}" name="Describe2" value="{{Describe2}}">
+					  	  	  	</div>
+					  	  	</div>
+					  	</div>
+					</li>					    
+					<li>
+					  	<div class="item-content">
+					  	  	<div class="item-inner ">
+					  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG09}}</div>
+					  	  	  	<div class="item-input">
+					  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG09}}" name="Describe3" value="{{Describe3}}">
+					  	  	  	</div>
+					  	  	</div>
+					  	</div>
+					</li>
+					<li>
+					  	<div class="item-content">
+					  	  	<div class="item-inner">
+					  	  	  	<div class="item-title label ">{{@global.LANGUAGE.ASSET_EDIT_MSG10}}</div>
+					  	  	  	<div class="item-input">
+					  	  	  	  	<input type="text" placeholder="{{@global.LANGUAGE.ASSET_EDIT_MSG10}}" name="Describe4" value="{{Describe4}}" class="only_numbers" maxlength="4">
+						  	  	</div>
+					  	  	</div>
+					  	</div>
+					</li>					    
+					    	
+			    </ul>
+			</div>
+			
+	            
+	        
+	    </div>
+		
+	</div>
 </div>

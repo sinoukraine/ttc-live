@@ -1,7 +1,7 @@
 String.prototype.format = function (e) { var t = this; if (arguments.length > 0) if (arguments.length == 1 && typeof e == "object") { for (var n in e) if (e[n] != undefined) { var r = new RegExp("({" + n + "})", "g"); t = t.replace(r, e[n]) } } else for (var i = 0; i < arguments.length; i++) if (arguments[i] != undefined) { var r = new RegExp("({)" + i + "(})", "g"); t = t.replace(r, arguments[i]) } return t };
 String.prototype.subStrEx = function (e) { return this.length + 3 > e ? this.substr(0, e) + "..." : this };
 function isUndefined(e) { return "undefined" == typeof e };
-var JSON1 = {};
+var JSON1={};
 JSON1.request=function(url,success,error){if(url.indexOf("&callback=?")<0){if(url.indexOf("?")>0){url+="&callback=?"}else{url+="?callback=?"}}$.ajax({async:true,url:url,type:"get",dataType:"jsonp",jsonp:"callback",success:function(result){if(typeof(success)=='function'){success(typeof(result)=='string'?eval(result):result)}},error:function(){if(typeof(error)=='function'){error()}}})};
 JSON1.jsonp=function(url,funcCallback){window.parseLocation=function(results){var response=$.parseJSON(results);document.body.removeChild(document.getElementById('getJsonP'));delete window.parseLocation;if(funcCallback){funcCallback(response)}};function getJsonP(url){url=url+'&callback=parseLocation';var script=document.createElement('script');script.id='getJsonP';script.src=url;script.async=true;document.body.appendChild(script)}if(XMLHttpRequest){var xhr=new XMLHttpRequest();if('withCredentials'in xhr){var xhr=new XMLHttpRequest();xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status==200){var response=$.parseJSON(xhr.responseText);if(funcCallback){funcCallback(response)}}else if(xhr.status==0||xhr.status==400){getJsonP(url)}else{}}};xhr.open('GET',url,true);xhr.send()}else if(XDomainRequest){var xdr=new XDomainRequest();xdr.onerror=function(err){};xdr.onload=function(){var response=JSON.parse(xdr.responseText);if(funcCallback){funcCallback(response)}};xdr.open('GET',url);xdr.send()}else{getJsonP(url)}}};
 JSON1.requestPost=function(url,data,success,error){$.ajax({async:true,url:url,data:data,type:"POST",dataType:"json",success:function(result){if(typeof(success)=='function'){success(typeof(result)=='string'?eval(result):result)}},error:function(){if(typeof(error)=='function'){error()}}})};
@@ -95,7 +95,6 @@ Protocol = {
     },
     ProductFeatures : {
         "Static":256,
-        "Charging":524288,
         "Holder":32768,
         "FuelSensor":2048,
         "Acc":128,
@@ -107,7 +106,6 @@ Protocol = {
         "Battery":1024,
         "DrivingTime":65536,
         "RFIDCard":16384,
-        "Heartrate":262144,
         "GsmSignal":32,
         "Mileage":16,
         "None":0,
@@ -301,7 +299,7 @@ Protocol = {
         },
         getAddressByGeocoder: function(latlng,replyFunc){
             /*var url = "http://map.quiktrak.co/reverse.php?format=json&lat={0}&lon={1}&zoom=18&addressdetails=1".format(latlng.lat, latlng.lng);
-            JSON.request(url, function(result){ replyFunc(result.display_name);});*/
+            JSON1.request(url, function(result){ replyFunc(result.display_name);});*/
             var coords = latlng.lat + ', ' + latlng.lng;
             $.ajax({
                    type: "GET",                    
@@ -339,7 +337,7 @@ Protocol = {
         },
         getLatLngByGeocoder: function(address,replyFunc){            
             var url = "https://nominatim.openstreetmap.org/search?q={0}&format=json&polygon=1&addressdetails=1".format(address);
-                /*JSON.request(url, function(result){                    
+                /*JSON1.request(url, function(result){                    
                     var res = new L.LatLng(result[0].lat, result[0].lon);
                     replyFunc(res);
                 });*/
@@ -437,7 +435,6 @@ Protocol = {
             return latitude + " " + latitudeCardinal + "\n" + longitude + " " + longitudeCardinal;
         },
         getAssetStateInfo: function(asset){
-            
             /*
                 state-0  -- gray
                 state-1  -- green
@@ -557,21 +554,6 @@ Protocol = {
                     if(asset.haveFeature("Alt")){
                         ret.altitude = {};
                         ret.altitude.value = asset.posInfo.alt + '&nbsp;ft';                   
-                    }
-                    if(asset.haveFeature("Heartrate"))
-                    {
-                        ret.heartrate = {};
-                        ret.heartrate.value = parseInt(asset.posInfo.Heartrate); 
-
-                        /*ret.steps = {};
-                        ret.steps.value = parseInt(asset.posInfo.Steps);*/
-
-                        /*ret.push('<div class="item-attribute-border55">'
-                            +'<div  class="iconfont2 item-attribute-icon" style="color:red">&#xe65b;</div>'
-                            +'<div class="item-attribute-value">'
-                            +  parseInt(this.posInfo.Heartrate)
-                            +'</div>'
-                            +'</div>');  */   
                     }
                     /*if(asset.haveFeature("RFIDCard")){
                         ret.driver = {};

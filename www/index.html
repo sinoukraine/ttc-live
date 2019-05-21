@@ -3,9 +3,8 @@
   <head>
     <!-- Required meta tags-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, target-densitydpi=medium-dpi, user-scalable=0" /> -->
-<!--     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" /> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"> -->
+    <meta name="viewport" content="initial-scale=1, width=device-width, height=device-height, viewport-fit=cover">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <!-- Color theme for statusbar -->
     <!-- <meta name="theme-color" content="#2196f3"> -->
@@ -14,31 +13,34 @@
 
     <!-- Cropper Camer -->
     <link rel="stylesheet" href="resources/plugins/cropper/css/cropper.min.css" type="text/css" charset="utf-8"/>
-    <!-- Path to Framework7 Library CSS, Material Theme -->
-    <link rel="stylesheet" href="resources/libraries/framework7/css/framework7.material.min.css">
-    <!-- Path to Framework7 color related styles, Material Theme -->
-    <link rel="stylesheet" href="resources/libraries/framework7/css/framework7.material.colors.min.css">
+    <!-- Path to Framework7 Library CSS, Material Theme -->    
+    <link rel="stylesheet" href="resources/libraries/framework7/css/framework7.ios.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->    
+    <link rel="stylesheet" href="resources/libraries/framework7/css/framework7.ios.colors.min.css">
     <!-- Icons -->
     <link rel="stylesheet" href="resources/fonts/framework7-icons.css">
-    <!-- <link rel="stylesheet" href="resources/fonts/icomoon/icomoon.css"> -->
-    <!-- <link rel="stylesheet" href="resources/fonts/ownicons/iconfont.css"> -->
-
+    <!--  <link rel="stylesheet" href="resources/fonts/icomoon/icomoon.css"> -->
+    <!-- <link rel="stylesheet" href="resources/fonts/ownicons/iconfont.css">   -->
     <link rel="stylesheet" href="resources/fonts/fontastic/styles.css">
+
     
     <!-- Path to your custom app styles-->
-    <link rel="stylesheet" href="resources/libraries/leaflet/leaflet.css">
-     <!-- MarkerCluster --> 
+    <link rel="stylesheet" href="resources/libraries/leaflet/leaflet.css">  
+    <!-- MarkerCluster --> 
     <link rel="stylesheet" href="resources/plugins/leaflet.markercluster/css/MarkerCluster.css">
     <link rel="stylesheet" href="resources/plugins/leaflet.markercluster/css/MarkerCluster.Default.css">
 
-    <link rel="stylesheet" href="resources/fonts/roboto.css">
-    <link rel="stylesheet" href="resources/app/my-app.css?v=1.1.1">
+    <link rel="stylesheet" href="resources/app/my-app.css">
 
   </head>
-  <body class="theme-orange theme-dealer" >
+  <body class="theme-orange theme-dealer">
+    <div class="statusbar-overlay"></div>
+
+    <!-- First, we need to add Panel's overlay that will overlays app while panel is opened -->
+    <div class="panel-overlay"></div>
 
     <script id="template_Login_Screen" type="text/template7">
-      <div class="login-screen " >  
+      <div class="login-screen ">  
         <div class="view">
           <div class="page no-navbar no-toolbar no-swipeback login_page" data-page="login-screen">           
             <div class="page-content login-screen-content">
@@ -53,7 +55,7 @@
                         <div class="item-inner">
                           <div class="item-input">                          
                             <input type="text" placeholder="{{@global.LANGUAGE.LOGIN_MSG02}}" id="account" name="account" value="" />
-                          </div>                          
+                          </div>
                         </div>
                       </div>
                     </li>
@@ -64,7 +66,6 @@
                             <input type="password" placeholder="{{@global.LANGUAGE.LOGIN_MSG03}}" id="password" name="password" value="" />
                             <i class="f7-icons icon-password-eye color-gray toggle-password"></i>
                           </div>
-
                         </div>
                       </div>
                     </li> 
@@ -73,9 +74,12 @@
                     </li>             
                   </ul>
                 </div>          
-                <div class="content-block btn_login_wrapper">
+                <div class="content-block ">
                   <button type="submit" class="button button-big login-submit button-fill bg-dealer btn_login" style="" id="btnLogin">{{@global.LANGUAGE.LOGIN_MSG04}}</button>
                 </div>
+                <!-- <div class="content-block ">
+                  <input type="text" class="regToken" value="">                 
+                </div> -->
               </form>
             </div>
           </div>
@@ -83,13 +87,12 @@
       </div>
     </script>
     
-    <!-- First, we need to add Panel's overlay that will overlays app while panel is opened -->
-    <div class="panel-overlay"></div>
+    
  
     <!-- Left panel -->
     <script id="template_Popover_Menu" type="text/template7">
       <!-- Left panel -->
-      <div class="panel panel-left panel-reveal">
+      <div class="panel panel-left panel-cover">
         <div class="menu_wrapper">
           <div class="menu_header">
             <img class="vertical-center" src="resources/images/logo.png" alt="">
@@ -99,7 +102,7 @@
               <ul>
                 <li class="item-content list-panel-all close-panel item-link" id="menuHome">
                   <div class="item-media">                
-                    <i class="f7-icons icon-menu-home color-dealer"></i>
+                    <i class="f7-icons icon-menu-home "></i>
                   </div>
                   <div class="item-inner">
                     <div class="item-title">{{@global.LANGUAGE.MENU_MSG00}}</div>
@@ -107,7 +110,7 @@
                 </li> 
                 <li class="item-content list-panel-all close-panel item-link" id="menuGeofence">
                   <div class="item-media">
-                    <i class="f7-icons icon-menu-geofence color-dealer"></i>
+                    <i class="f7-icons icon-menu-geofence"></i>
                   </div>
                   <div class="item-inner">
                     <div class="item-title">{{@global.LANGUAGE.MENU_MSG01}}</div>
@@ -115,40 +118,40 @@
                 </li>  
                 <li class="item-content list-panel-all close-panel item-link" id="menuAlarms">
                     <div class="item-media">
-                        <i class="f7-icons icon-menu-alarms color-dealer"></i>
+                        <i class="f7-icons icon-menu-alarms"></i>
                     </div>
                     <div class="item-inner">
                         <div class="item-title">{{@global.LANGUAGE.ALARM_MSG06}}</div>
                     </div>
-                </li>  
-                <li class="item-content list-panel-all close-panel item-link" id="menuRecharge">
-                  <div class="item-media">
-                    <i class="f7-icons icon-menu-recharge color-dealer"></i>
-                  </div>
-                  <div class="item-inner">
-                    <div class="item-title">{{@global.LANGUAGE.MENU_MSG02}}</div>
-                  </div>
-                </li>       
+                </li>    
+                <!-- <li class="item-content list-panel-all close-panel item-link" id="menuRecharge">
+                           <div class="item-media">
+                             <i class="f7-icons icon-menu-recharge"></i>
+                           </div>
+                           <div class="item-inner">
+                             <div class="item-title">{{@global.LANGUAGE.MENU_MSG02}}</div>
+                           </div>
+                         </li>   -->       
                 <li class="item-content list-panel-all close-panel item-link" id="menuProfile">
                   <div class="item-media">
-                    <i class="f7-icons icon-menu-profile color-dealer"></i>
+                    <i class="f7-icons icon-menu-profile"></i>
                   </div>
                   <div class="item-inner">
                     <div class="item-title">{{@global.LANGUAGE.MENU_MSG03}}</div>
                   </div>
-                </li>  
-                <li class="item-content list-panel-all close-panel item-link" id="menuSupport">
-                    <div class="item-media">
-                        <i class="f7-icons icon-menu-support color-dealer"></i>
-                    </div>
-                    <div class="item-inner">
-                        <div class="item-title">{{@global.LANGUAGE.MENU_MSG06}}</div>
-                    </div>
                 </li>   
-                                 
+                <li class="item-content list-panel-all close-panel item-link" id="menuSupport">
+                  <div class="item-media">
+                    <i class="f7-icons icon-menu-support-1"></i>
+                  </div>
+                  <div class="item-inner">
+                      <div class="item-title">{{@global.LANGUAGE.MENU_MSG06}}</div>
+                  </div>
+                </li>   
+
                 <li class="item-content list-panel-all close-panel" id="menuLogout"> 
                   <div class="item-media">
-                    <i class="f7-icons icon-menu-logout color-dealer"></i>
+                    <i class="f7-icons icon-menu-logout"></i>
                   </div>
                   <div class="item-inner">
                     <div class="item-title">{{@global.LANGUAGE.MENU_MSG04}}</div>
@@ -157,10 +160,10 @@
               </ul>
             </div>
           </div>
-          <div class="menu_remainings">
+          <!-- <div class="menu_remainings">
             {{@global.LANGUAGE.COM_MSG32}}: <span class="remaining_counter">---</span>
-          </div>
-        </div>
+          </div>-->
+                  </div> 
       </div>
     </script>
  
@@ -168,51 +171,55 @@
   
     <!-- Views -->
     <div class="views">
-          <!-- Your main view, should have "view-main" class -->
+      <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
-            <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-fixed">
-              <!-- Page, "data-page" contains page name -->
-                <script type="text/template7" id="template_AssetList" >
-                    <div data-page="index" class="page bg-color-page">
-           
-                      <!-- Top Navbar. In Material theme it should be inside of the page-->
-                        <div class="navbar color-black ">
-                            <div class="navbar-inner">
-                                <div class="left">
-                                    <a href="#" class="link icon-only open-panel color-black"> <i class="f7-icons icon-header-menu"></i></a>
-                                </div>
-                                <div class="left navbar_title_index">{{@global.LANGUAGE.MENU_MSG00}}</div>
-                                <div class="right">
-                                    <!-- <a href="#" class="link button_search" ><i class="f7-icons">search</i></a> -->
-                                    <!-- <a href="#" class="link open-panel notification_button new_not" data-panel="right" ><i class="f7-icons">bell</i></a> -->
-                                    <a href="#" class="link notification_button" ><i class="f7-icons icon-header-alarm"></i></a>
-                                </div>
-                            </div>
-                            
-                        </div>          
-                        <form class="searchbar theme-white" >
+        <!-- Pages container, because we use fixed navbar and toolbar, it has additional appropriate classes-->
+          <!-- <script type="text/template7" id="template_AssetList" > -->
+   
+              <!-- Top Navbar. In Material theme it should be inside of the page-->
+            <div class="navbar color-black">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="#" class="link icon-only open-panel "> <i class="f7-icons icon-header-menu"></i></a>
+                    </div>
+                    <div class="center index-title">assets</div> <!-- {{@global.LANGUAGE.MENU_MSG00}} -->
+                    <div class="right">                                         
+                        <a href="#" class="link notification_button" ><i class="f7-icons icon-header-alarm"></i></a>
+                    </div>
+
+                    <div class="subnavbar">
+                        <div class="buttons-row">
+                            <form class="searchbar" >
                                 <div class="searchbar-input">
-                                    <input type="search" placeholder="{{@global.LANGUAGE.COM_MSG06}}">
+                                    <input type="search" class="index-search-input" placeholder="Search"> <!-- {{@global.LANGUAGE.COM_MSG06}} -->
                                     <a href="#" class="searchbar-clear"></a>
                                 </div>
-                                <a href="#" class="searchbar-cancel">{{@global.LANGUAGE.COM_MSG04}}</a>
-                            </form>   
-                        <div class="searchbar-overlay"></div>   
-                        <!-- Scrollable page content -->
-                        <div class="page-content">
-                            <!-- Search Bar -->
-                            
-                            <div class="content-block index-search-nothing-found searchbar-not-found color-white">                               
-                                {{@global.LANGUAGE.COM_MSG05}}
-                            </div>
-                            <div class="list-block media-list no-hairlines no-hairlines-between virtual-list list-block-search assets_list" > 
-                            </div>
+                                <a href="#" class="index-search-cancel searchbar-cancel color-black">Cancel</a> <!--- {{@global.LANGUAGE.COM_MSG04}} -->
+                            </form>
                         </div>
-                   
                     </div>
-                </script>
+
+                </div>                
+            </div>            
+              
+            <div class="pages navbar-through toolbar-through">        
+                <div data-page="index" class="page bg-color-page with-subnavbar">                         
+                    <div class="searchbar-overlay"></div>                    
+                 
+                    <div class="page-content">
+                        <div class="content-block index-search-nothing-found searchbar-not-found color-white">
+                            Nothing found
+                            <!-- {{@global.LANGUAGE.COM_MSG05}}-->
+                        </div>
+                        <div class="list-block media-list no-hairlines virtual-list layout-dark list-block-search assets_list" >            
+                        
+                        </div>
+                    </div>
+                   
+                </div>
+           
             </div>
+       <!--  </script> -->
         </div>
     </div>
 
@@ -221,33 +228,34 @@
     <script type="text/javascript" src="cordova.js"></script>
     <!-- Path to Framework7 Library JS-->
     <script type="text/javascript" src="resources/libraries/framework7/js/framework7.min.js"></script>
-     <!-- jquery libraries -->
+     <!-- jquery libraries -->   
     <script type="text/javascript" src="resources/libraries/jquery/jqury-2.2.4.min.js"></script>
-    <script type="text/javascript" src="resources/libraries/jquery/jquery.signalR-2.2.0.min.js"></script>
+<!--     <script type="text/javascript" src="resources/libraries/jquery/jquery.signalR-2.2.0.min.js"></script> -->
+
     <!-- Path to leaflet Library JS-->
     <script type="text/javascript" src="resources/libraries/leaflet/leaflet.js"></script>
     <!-- Moment -->
     <script type="text/javascript" src="resources/libraries/moment/moment.min.js" ></script>
     <script type="text/javascript" src="resources/libraries/moment/moment-duration-format.js" ></script>
-    <!-- TimeSpan -->
+        <!-- TimeSpan -->
     <script type="text/javascript" src="resources/libraries/TimeSpan.min.js"></script>
-    <!-- Cropper Camera --> 
+     <!-- Cropper Camera --> 
     <script type="text/javascript" src="resources/plugins/cropper/js/cropper.min.js"></script>
+    <!-- jClass -->
+    <script type="text/javascript" src="resources/libraries/jClass.mini.js"></script>
+    <!-- google api for street view -->
+    <script async="async" defer="defer" src="http://maps.google.com/maps/api/js?v=weekly&key=AIzaSyBrjsPOoyNhEjXJ1fSd_fsqHXuqfp5pjBY"></script>
     <!-- MarkerCluster --> 
     <script type="text/javascript" src="resources/plugins/leaflet.markercluster/js/leaflet.markercluster.js"></script>
     <!-- Coordinates grid --> 
     <script type="text/javascript" src="resources/plugins/leaflet.grid/leaflet.latlng-graticule.js"></script>
-    <!-- google api for street view -->
-    <script async="async" defer="defer" src="http://maps.google.com/maps/api/js?v=weekly&key=AIzaSyBrjsPOoyNhEjXJ1fSd_fsqHXuqfp5pjBY"></script>
-    <!-- jClass -->
-    <script type="text/javascript" src="resources/libraries/jClass.mini.js"></script>
     <!-- Path to your app js-->
-    <script type="text/javascript" src="resources/app/helper.js" ></script>
-    <script type="text/javascript" src="resources/app/ProtocolHelpers.js" ></script>
     <script type="text/javascript" src="resources/app/languages.js" ></script>
-    <script type="text/javascript" src="resources/app/hubs.js"></script>
-    <script type="text/javascript" src="resources/app/HubPlus.js" ></script>
-    <script type="text/javascript" src="resources/app/my-app.js?version=0.2"></script>
+    <script type="text/javascript" src="resources/app/helper.js" ></script>
+    <script type="text/javascript" src="resources/app/ProtocolHelpers.js" ></script>    
+<!--     <script type="text/javascript" src="resources/app/hubs.js"></script>
+        <script type="text/javascript" src="resources/app/HubPlus.js" ></script> -->        
+    <script type="text/javascript" src="resources/app/my-app.js?version=0.1"></script>
 
     
   </body>
