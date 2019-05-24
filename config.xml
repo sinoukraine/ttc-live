@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sinopacific.ttclive" version="1.2.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" defaultlocale="en-US" android-versionCode="30" ios-CFBundleVersion="30">
+<widget id="com.sinopacific.ttclive" version="1.2.8" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" defaultlocale="en-US" android-versionCode="31" ios-CFBundleVersion="31">
     <name>TTC LiveTrack</name>
     <description>
         TTC LiveTrack GPS tracker
