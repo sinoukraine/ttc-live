@@ -1,19 +1,19 @@
 @charset "UTF-8";
 
 @font-face {
-  font-family: "quiktrak-ios";
-  src:url("fonts/quiktrak-ios.eot");
-  src:url("fonts/quiktrak-ios.eot?#iefix") format("embedded-opentype"),
-    url("fonts/quiktrak-ios.woff") format("woff"),
-    url("fonts/quiktrak-ios.ttf") format("truetype"),
-    url("fonts/quiktrak-ios.svg#quiktrak-ios") format("svg");
+  font-family: "quiktrak";
+  src:url("fonts/quiktrak.eot");
+  src:url("fonts/quiktrak.eot?#iefix") format("embedded-opentype"),
+    url("fonts/quiktrak.woff") format("woff"),
+    url("fonts/quiktrak.ttf") format("truetype"),
+    url("fonts/quiktrak.svg#quiktrak") format("svg");
   font-weight: normal;
   font-style: normal;
 
 }
 
 [data-icon]:before {
-  font-family: "quiktrak-ios" !important;
+  font-family: "quiktrak" !important;
   content: attr(data-icon);
   font-style: normal !important;
   font-weight: normal !important;
@@ -27,7 +27,7 @@
 
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
-  font-family: "quiktrak-ios" !important;
+  font-family: "quiktrak" !important;
   font-style: normal !important;
   font-weight: normal !important;
   font-variant: normal !important;
@@ -38,9 +38,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-menu-support:before {
-  content: "\56";
-}
 .icon-data-acc:before {
   content: "\61";
 }
@@ -62,14 +59,11 @@
 .icon-data-speed:before {
   content: "\67";
 }
-.icon-data-temperature:before {
+.icon-data-status:before {
   content: "\68";
 }
-.icon-data-voltage:before {
+.icon-data-temperature:before {
   content: "\69";
-}
-.icon-engine-hours:before {
-  content: "\6a";
 }
 .icon-header-add:before {
   content: "\6b";
@@ -84,161 +78,146 @@
   content: "\6e";
 }
 .icon-header-arrow-back:before {
-  content: "\70";
+  content: "\6f";
 }
 .icon-header-delete:before {
-  content: "\71";
+  content: "\70";
 }
 .icon-header-edit:before {
+  content: "\71";
+}
+.icon-header-menu:before {
   content: "\72";
 }
 .icon-header-pause:before {
-  content: "\74";
-}
-.icon-header-play:before {
-  content: "\75";
-}
-.icon-header-playback:before {
-  content: "\76";
-}
-.icon-header-search:before {
-  content: "\77";
-}
-.icon-header-stop:before {
-  content: "\78";
-}
-.icon-header-update:before {
-  content: "\79";
-}
-.icon-menu-geofence-old:before {
-  content: "\7a";
-}
-.icon-menu-home-old:before {
-  content: "\41";
-}
-.icon-menu-logout:before {
-  content: "\42";
-}
-.icon-menu-profile:before {
-  content: "\43";
-}
-.icon-menu-support-1:before {
-  content: "\44";
-}
-.icon-other-acc:before {
-  content: "\45";
-}
-.icon-other-active:before {
-  content: "\46";
-}
-.icon-other-arrow:before {
-  content: "\47";
-}
-.icon-other-arrow-drop-down:before {
-  content: "\48";
-}
-.icon-other-asset:before {
-  content: "\49";
-}
-.icon-other-data:before {
-  content: "\4a";
-}
-.icon-other-direction:before {
-  content: "\4b";
-}
-.icon-other-distance:before {
-  content: "\4c";
-}
-.icon-other-edit:before {
-  content: "\4d";
-}
-.icon-other-imei:before {
-  content: "\4e";
-}
-.icon-other-menu:before {
-  content: "\4f";
-}
-.icon-other-menu-geofence:before {
-  content: "\50";
-}
-.icon-other-pin-map:before {
-  content: "\51";
-}
-.icon-other-ping:before {
-  content: "\52";
-}
-.icon-other-position:before {
-  content: "\53";
-}
-.icon-other-remove:before {
-  content: "\54";
-}
-.icon-other-satellite:before {
-  content: "\55";
-}
-.icon-other-signal:before {
-  content: "\57";
-}
-.icon-other-speed:before {
-  content: "\58";
-}
-.icon-settings-password:before {
-  content: "\59";
-}
-.icon-settings-user:before {
-  content: "\5a";
-}
-.icon-stopped-time:before {
-  content: "\30";
-}
-.icon-menu-home:before {
-  content: "\31";
-}
-.icon-menu-geofence:before {
-  content: "\32";
-}
-.icon-menu-alarms:before {
-  content: "\33";
-}
-.icon-password-eye:before {
-  content: "\34";
-}
-.icon-header-menu:before {
-  content: "\6f";
-}
-.icon-other-geolock:before {
   content: "\73";
 }
-.icon-other-lock:before {
-  content: "\35";
+.icon-header-play:before {
+  content: "\74";
+}
+.icon-header-search:before {
+  content: "\75";
+}
+.icon-header-stop:before {
+  content: "\76";
+}
+.icon-header-track:before {
+  content: "\77";
+}
+.icon-menu-alarms:before {
+  content: "\78";
+}
+.icon-menu-geofence:before {
+  content: "\79";
+}
+.icon-menu-home:before {
+  content: "\7a";
+}
+.icon-menu-logout:before {
+  content: "\41";
+}
+.icon-menu-profile:before {
+  content: "\42";
+}
+.icon-menu-support:before {
+  content: "\43";
+}
+.icon-other-acc:before {
+  content: "\44";
+}
+.icon-other-active:before {
+  content: "\45";
+}
+.icon-other-data:before {
+  content: "\46";
+}
+.icon-other-distance:before {
+  content: "\47";
+}
+.icon-other-edit:before {
+  content: "\48";
+}
+.icon-other-pin-map:before {
+  content: "\4a";
+}
+.icon-other-position:before {
+  content: "\4b";
+}
+.icon-other-remove:before {
+  content: "\4c";
+}
+.icon-other-satellite:before {
+  content: "\4d";
+}
+.icon-other-signal:before {
+  content: "\4e";
+}
+.icon-other-speed:before {
+  content: "\4f";
+}
+.icon-password-eye:before {
+  content: "\50";
+}
+.icon-ping1:before {
+  content: "\51";
+}
+.icon-settings-password:before {
+  content: "\52";
+}
+.icon-settings-profile:before {
+  content: "\53";
+}
+.icon-stopped-time:before {
+  content: "\54";
+}
+.icon-engine-hours:before {
+  content: "\55";
+}
+.icon-other-geolock:before {
+  content: "\56";
 }
 .icon-other-input:before {
-  content: "\36";
+  content: "\58";
+}
+.icon-other-menu-geofence:before {
+  content: "\57";
+}
+.icon-other-lock:before {
+  content: "\59";
+}
+.icon-other-satellite-1:before {
+  content: "\49";
+}
+.icon-other-signal-1:before {
+  content: "\5a";
 }
 .icon-menu-recharge:before {
-  content: "\37";
+  content: "\30";
 }
 .icon-other-route:before {
-  content: "\38";
+  content: "\31";
 }
 .icon-other-hearth:before {
-  content: "\39";
+  content: "\32";
 }
 .icon-other-user-manual:before {
-  content: "\21";
+  content: "\33";
 }
 .icon-other-call:before {
-  content: "\22";
-}
-.icon-other-door:before {
-  content: "\23";
+  content: "\34";
 }
 .icon-other-sort:before {
-  content: "\24";
+  content: "\36";
 }
 .icon-other-report-theft:before {
-  content: "\25";
+  content: "\35";
+}
+.icon-other-door:before {
+  content: "\37";
+}
+.icon-data-voltage:before {
+  content: "\6a";
 }
 .icon-menu-reports:before {
-  content: "\26";
+  content: "\38";
 }

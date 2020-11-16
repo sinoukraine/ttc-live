@@ -1,105 +1,100 @@
-<div class="navbar bg-white color-black">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="link backToIndex color-black"> <i class="f7-icons icon-header-arrow-back"></i></a>
-        </div>
-        <div class="center sliding">{{Name}}</div>   
-        <div class="right">
-            <a href="#" class="link  showPlayback"><i class="f7-icons icon-header-apply"></i></a>               
-        </div>
-
-        <!-- Sub navbar -->
-        <div class="subnavbar">
-            <div class="buttons-row">
-                <a href="#" class="button tab-link " data-id="asset.status" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG07}}</span>
-                </a>
-                <a href="#" class="button tab-link " data-id="asset.alarm" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ALARM_MSG01}}</span>
-                </a>
-                <a href="#" class="button tab-link active" data-id="asset.playback" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG08}}</span>
-                </a>
-                <a href="#" class="button tab-link" data-id="asset.track" data-href="">
-                    <span class="tabbar-label">{{@global.LANGUAGE.ASSET_STATUS_MSG09}}</span>
-                </a>
+<div class="page bg-color-page playback_page" data-page="asset.playback">
+	<div class="navbar  color-black">
+        <div class="navbar-inner">
+            <div class="left">
+            	<a href="#" class="link backToIndex color-black"> <i class="f7-icons icon-header-arrow-back"></i></a>
+            </div>
+            <div class="left navbar_title">{{Name}}</div>
+            <div class="right">
+                <a href="#" class="link  showPlayback"><i class="f7-icons icon-header-apply"></i></a>
             </div>
         </div>
     </div>
-</div>
+    
+	<div class="toolbar tabbar  color-black ">
+	    <div class="toolbar-inner">
+	        <a href="#" class=" tab-link" data-id="asset.status" data-href="">
+	            <span class="tabbar-label"><b>{{@global.LANGUAGE.ASSET_STATUS_MSG07}}</b></span>
+	        </a>
+            <a href="#" class="tab-link" data-id="asset.alarm" data-href="">
+                <span class="tabbar-label"><b>{{@global.LANGUAGE.ALARM_MSG01}}</b></span>
+            </a>
+	        <a href="#" class="tab-link active" data-id="asset.playback" data-href="">
+	            <span class="tabbar-label"><b>{{@global.LANGUAGE.ASSET_STATUS_MSG08}}</b></span>
+	        </a>
+	        <a href="#" class="tab-link" data-id="asset.track" data-href="">
+	            <span class="tabbar-label"><b>{{@global.LANGUAGE.ASSET_STATUS_MSG09}}</b></span>
+	        </a>
+	        
+	    </div>
+	</div>
 
-<div class="pages">
-    <div class="page with-subnavbar bg-color-page playback_page" data-page="asset.playback">
-        <div class="page-content">     
-            <!-- <div class="content-block-title">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG08}}: {{Name}}</div>    -->
-            <div class="list-block no-hairlines layout-dark list-playback-settings ">
-                <ul>                    
-                    <li>
-                        <a href="#" class="item-content item-link item-with-arrow">
-                            <div class="item-media"></div>
-                            <div class="item-inner">
-                                <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG04}}</div>
-                                <div class="item-input">
-                                    <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG04}}" name="picker-start-date" class="picker-start-date" readonly value="">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="item-content item-link item-with-arrow">
-                            <div class="item-media"></div>
-                            <div class="item-inner">
-                                <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG05}}</div>
-                                <div class="item-input">
-                                    <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG05}}" name="picker-start-time" class="picker-start-time" readonly value="">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="item-content item-link item-with-arrow">
-                            <div class="item-media"></div>
-                            <div class="item-inner">
-                                <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG06}}</div>
-                                <div class="item-input">
-                                    <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG06}}" name="picker-end-date" class="picker-end-date" readonly value="">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="item-content item-link item-with-arrow">
-                            <div class="item-media"></div>
-                            <div class="item-inner">
-                                <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG07}}</div>
-                                <div class="item-input">
-                                    <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG07}}" name="picker-end-time" class="picker-end-time" readonly value="">
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                  
-                    <li class="li-switch">
-                        <div class="item-content"> 
-                        <div class="item-media"></div>                              
-                            <div class="item-inner">
-                                <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG29}}</div>
-                                <div class="item-input">
-                                    <label class="label-switch">
-                                        <input type="checkbox" name="optimizedState" checked="checked" > <!-- checked="checked" -->
-                                        <div class="checkbox"></div>
-                                    </label>
+    <div class="page-content">        
+        
+        <div class="list-block media-list no-hairlines list-playback-settings m-0">
+            <ul>
+                <li >
+                    <label class="label-checkbox item-content no-fastclick " >
+                        <input type="checkbox"  name="optimizedState" value="" checked="checked">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title color-white">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG29}}</div>
+                                <div class="item-after">
+                                    <i class="icon icon-form-checkbox"></i>
                                 </div>
                             </div>
                         </div>
-                    </li>
-                   
-                </ul>
-            </div>
-                
-        	
-
+                    </label>
+                </li>
+                <li class="item-divider ">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG00}}</li> <!-- no-before -->
+                <li>
+                    <a href="#" class="item-content item-link item-with-arrow">
+                        <div class="item-media"></div>
+                        <div class="item-inner">
+                            <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG04}}</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG04}}" name="picker-start-date" class="picker-start-date" readonly value="">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-content item-link item-with-arrow">
+                        <div class="item-media"></div>
+                        <div class="item-inner no-after">
+                            <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG05}}</div>
+                            <div class="item-input  no-after">
+                                <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG05}}" name="picker-start-time" class="picker-start-time" readonly value="">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="item-divider">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG01}}</li>
+                <li>
+                    <a href="#" class="item-content item-link item-with-arrow">
+                        <div class="item-media"></div>
+                        <div class="item-inner">
+                            <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG06}}</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG06}}" name="picker-end-date" class="picker-end-date" readonly value="">
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="item-content item-link item-with-arrow">
+                        <div class="item-media"></div>
+                        <div class="item-inner">
+                            <div class="item-title label">{{@global.LANGUAGE.ASSET_PLAYBACK_MSG07}}</div>
+                            <div class="item-input">
+                                <input type="text" placeholder="{{@global.LANGUAGE.ASSET_PLAYBACK_MSG07}}" name="picker-end-time" class="picker-end-time" readonly value="">
+                            </div>
+                        </div>
+                    </a>
+                </li> 
+            </ul>
         </div>
+    	
+
     </div>
 </div>
-

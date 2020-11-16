@@ -1,69 +1,60 @@
-<div class="navbar ">
-    <div class="navbar-inner">
-        <div class="left">
-            <a href="#" class="back link "> <i class="f7-icons icon-header-arrow-back"></i></a>
-        </div>
-        <div class="center sliding">{{Name}}</div>
-        <div class="right sliding">
-            <a href="#" class="link startPlayback"><i class="f7-icons icon-header-play"></i></a>
-            <a href="#" class="link menuRoutes"><i class="f7-icons icon-other-menu"></i></a>
-        </div>
-        
-    </div>
-</div>
-
-<div class="pages">
-    <div class="page no-swipeback bg-color-page playback_show" data-page="asset.playback.show">
-        <div class="page-content">
-
-        	<div class="position_map position_map_playback"> 
-                <div class="map" id="map"></div>
-                <div class="float_button_wrapper pano_button_wrapper bg-blue">
-                    <a href="#" class="link color-white pano_button" data-lat="{{Lat}}" data-lng="{{Lng}}">
-                        <i class="pano_preview_img"></i>                                   
-                    </a>
-                </div>
-        	</div>
-            <div class="position_bottom position_bottom_playback">                 
-                <div class="row">
-                    <div class="col-100 color-white address">                        
-                        <div class="position_bottom_img_right">
-                            <p class="display_address">{{Address}}</p>
-                            <div class="item-subtext position_latlng">{{Coords}}</div>  
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row row-slider">
-                    <div class="col-100 ">
-                        <div class="item-input playback_show_slider">
-                            <div class="range-slider color-boatwatch">
-                                <input class="rangeInput" name="rangeInput" type="range" min="0" max="100" step="1" value="0">
-                            </div>            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row no-gutter">
-                    <div class="col-33 color-white">
-                        <i class="f7-icons icon-other-data color-white"></i>
-                        <p>{{@global.LANGUAGE.ASSET_TRACK_MSG00}}</p>  
-                        <p class="position_data color-boatwatch position_time">{{Time}}</p>
-                    </div>                                       
-                    <div class="col-33 color-white">
-                        <i class="f7-icons icon-other-speed color-white"></i>
-                        <p>{{@global.LANGUAGE.ASSET_TRACK_MSG02}}</p>  
-                        <p class="position_data color-boatwatch position_speed">{{Speed}}</p>
-                    </div>
-                    <div class="col-33 color-white">
-                        <i class="f7-icons icon-other-distance color-white"></i>
-                        <p >{{@global.LANGUAGE.ASSET_TRACK_MSG03}}</p>  
-                        <p class="position_data position_mileage">{{Mileage}}</p>
-                    </div>
-                    
-                </div>
-                
+<div class="page no-swipeback bg-color-page playback_show" data-page="asset.playback.show">
+	<div class="navbar  color-black ">
+        <div class="navbar-inner">
+            <div class="left">
+            	<a href="#" class="back link color-black"> <i class="f7-icons icon-header-arrow-back"></i></a>
             </div>
-        </div>	
+            <div class="left navbar_title navbar_title_index">{{Name}}</div>
+           	<div class="right">
+           		<a href="#" class="link startPlayback"><i class="f7-icons icon-header-play"></i></a>
+                <a href="#" class="link menuRoutes"><i class="f7-icons icon-other-menu-geofence"></i></a>
+           	</div>
+        </div>
     </div>
+
+    <div class="page-content">
+
+    	<div class="position_map position_map_playback"> 
+            <div class="float_button_wrapper pano_button_wrapper bg-blue">
+                <a href="#" class="link color-white pano_button" data-lat="{{Lat}}" data-lng="{{Lng}}">
+                    <i class="pano_preview_img"></i>                                   
+                </a>
+            </div>
+            <div class="map" id="map"></div>
+    	</div>
+        <div class="position_bottom position_bottom_playback">            
+            <div class="row no-gutter">                
+                <div class="col-33 color-white">
+                    <i class="f7-icons icon-other-data color-white"></i>
+                    <p>{{@global.LANGUAGE.ASSET_TRACK_MSG00}}</p>  
+                    <p class="position_data position_time">{{Time}}</p>
+                </div>               
+                <div class="col-33 color-white">
+                    <i class="f7-icons icon-other-speed color-white"></i>
+                    <p>{{@global.LANGUAGE.ASSET_TRACK_MSG02}}</p>  
+                    <p class="position_data position_speed">{{Speed}}</p>
+                </div>
+                <div class="col-33 color-white">
+                    <i class="f7-icons icon-other-distance color-white"></i>
+                    <p >{{@global.LANGUAGE.ASSET_TRACK_MSG03}}</p>  
+                    <p class="position_data position_mileage">{{Mileage}}</p>
+                </div>
+            </div>
+            <div class="item-input playback_show_slider">
+                <div class="range-slider ">
+                    <input class="rangeInput" name="rangeInput" type="range" min="0" max="100" step="1" value="0">
+                </div>            
+            </div>
+            <div class="row no-gutter">
+                <div class="col-100 color-white address">  
+                    <div class="position_bottom_img_right">
+                        <p class="display_address">{{Address}}</p>
+                        <div class="item-subtext position_latlng">{{Coords}}</div>  
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+	
 </div>
